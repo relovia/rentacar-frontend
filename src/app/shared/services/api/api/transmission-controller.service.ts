@@ -21,6 +21,7 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { CreateTransmissionRequest } from '../model/create-transmission-request';
 // @ts-ignore
+<<<<<<< HEAD
 import { CreateTransmissionResponse } from '../model/create-transmission-response';
 // @ts-ignore
 import { GetAllTransmissionResponse } from '../model/get-all-transmission-response';
@@ -28,6 +29,15 @@ import { GetAllTransmissionResponse } from '../model/get-all-transmission-respon
 import { GetTransmissionByIdResponse } from '../model/get-transmission-by-id-response';
 // @ts-ignore
 import { Update400Response } from '../model/update400-response';
+=======
+import { CreatedTransmissionResponse } from '../model/created-transmission-response';
+// @ts-ignore
+import { GetAllTransmissionResponse } from '../model/get-all-transmission-response';
+// @ts-ignore
+import { GetTransmissionById400Response } from '../model/get-transmission-by-id400-response';
+// @ts-ignore
+import { GetTransmissionByIdResponse } from '../model/get-transmission-by-id-response';
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 // @ts-ignore
 import { UpdateTransmissionRequest } from '../model/update-transmission-request';
 // @ts-ignore
@@ -38,10 +48,16 @@ import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables'
 import { Configuration }                                     from '../configuration';
 import {
     TransmissionControllerServiceInterface,
+<<<<<<< HEAD
     DeleteRequestParams,
     AddRequestParams,
     GetTransmissionByIdRequestParams,
     UpdateRequestParams
+=======
+    CreateTransmissionRequestParams,
+    GetTransmissionByIdRequestParams,
+    UpdateTransmissionByIdRequestParams
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 } from './transmission-controller.serviceInterface';
 
 
@@ -115,6 +131,7 @@ export class TransmissionControllerService implements TransmissionControllerServ
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
+<<<<<<< HEAD
     public _delete(requestParameters: DeleteRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any>;
     public _delete(requestParameters: DeleteRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
     public _delete(requestParameters: DeleteRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
@@ -186,6 +203,15 @@ export class TransmissionControllerService implements TransmissionControllerServ
         const createTransmissionRequest = requestParameters.createTransmissionRequest;
         if (createTransmissionRequest === null || createTransmissionRequest === undefined) {
             throw new Error('Required parameter createTransmissionRequest was null or undefined when calling add.');
+=======
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreatedTransmissionResponse>;
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreatedTransmissionResponse>>;
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreatedTransmissionResponse>>;
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        const createTransmissionRequest = requestParameters.createTransmissionRequest;
+        if (createTransmissionRequest === null || createTransmissionRequest === undefined) {
+            throw new Error('Required parameter createTransmissionRequest was null or undefined when calling createTransmission.');
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -233,8 +259,13 @@ export class TransmissionControllerService implements TransmissionControllerServ
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/transmissions/add`;
         return this.httpClient.request<CreateTransmissionResponse>('post', `${this.configuration.basePath}${localVarPath}`,
+=======
+        let localVarPath = `/api/v1/trasmissions`;
+        return this.httpClient.request<CreatedTransmissionResponse>('post', `${this.configuration.basePath}${localVarPath}`,
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
             {
                 context: localVarHttpContext,
                 body: createTransmissionRequest,
@@ -252,10 +283,17 @@ export class TransmissionControllerService implements TransmissionControllerServ
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
+<<<<<<< HEAD
     public getAll(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<GetAllTransmissionResponse>>;
     public getAll(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<GetAllTransmissionResponse>>>;
     public getAll(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<GetAllTransmissionResponse>>>;
     public getAll(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+=======
+    public getAllTransmissions(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<GetAllTransmissionResponse>>;
+    public getAllTransmissions(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<GetAllTransmissionResponse>>>;
+    public getAllTransmissions(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<GetAllTransmissionResponse>>>;
+    public getAllTransmissions(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -293,7 +331,11 @@ export class TransmissionControllerService implements TransmissionControllerServ
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/transmissions/get/all`;
+=======
+        let localVarPath = `/api/v1/trasmissions`;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         return this.httpClient.request<Array<GetAllTransmissionResponse>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -357,7 +399,11 @@ export class TransmissionControllerService implements TransmissionControllerServ
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/transmissions/get/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+=======
+        let localVarPath = `/api/v1/trasmissions/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         return this.httpClient.request<GetTransmissionByIdResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -376,6 +422,7 @@ export class TransmissionControllerService implements TransmissionControllerServ
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
+<<<<<<< HEAD
     public update(requestParameters: UpdateRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UpdateTransmissionResponse>;
     public update(requestParameters: UpdateRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateTransmissionResponse>>;
     public update(requestParameters: UpdateRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateTransmissionResponse>>;
@@ -383,6 +430,19 @@ export class TransmissionControllerService implements TransmissionControllerServ
         const updateTransmissionRequest = requestParameters.updateTransmissionRequest;
         if (updateTransmissionRequest === null || updateTransmissionRequest === undefined) {
             throw new Error('Required parameter updateTransmissionRequest was null or undefined when calling update.');
+=======
+    public updateTransmissionById(requestParameters: UpdateTransmissionByIdRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UpdateTransmissionResponse>;
+    public updateTransmissionById(requestParameters: UpdateTransmissionByIdRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateTransmissionResponse>>;
+    public updateTransmissionById(requestParameters: UpdateTransmissionByIdRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateTransmissionResponse>>;
+    public updateTransmissionById(requestParameters: UpdateTransmissionByIdRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        const id = requestParameters.id;
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateTransmissionById.');
+        }
+        const updateTransmissionRequest = requestParameters.updateTransmissionRequest;
+        if (updateTransmissionRequest === null || updateTransmissionRequest === undefined) {
+            throw new Error('Required parameter updateTransmissionRequest was null or undefined when calling updateTransmissionById.');
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -430,7 +490,11 @@ export class TransmissionControllerService implements TransmissionControllerServ
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/transmissions/update`;
+=======
+        let localVarPath = `/api/v1/trasmissions/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         return this.httpClient.request<UpdateTransmissionResponse>('put', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,

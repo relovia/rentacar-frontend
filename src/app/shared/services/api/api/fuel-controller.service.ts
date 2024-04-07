@@ -21,13 +21,21 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { CreateFuelRequest } from '../model/create-fuel-request';
 // @ts-ignore
+<<<<<<< HEAD
 import { CreateFuelResponse } from '../model/create-fuel-response';
+=======
+import { CreatedFuelResponse } from '../model/created-fuel-response';
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 // @ts-ignore
 import { GetAllFuelResponse } from '../model/get-all-fuel-response';
 // @ts-ignore
 import { GetFuelByIdResponse } from '../model/get-fuel-by-id-response';
 // @ts-ignore
+<<<<<<< HEAD
 import { Update400Response } from '../model/update400-response';
+=======
+import { GetTransmissionById400Response } from '../model/get-transmission-by-id400-response';
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 // @ts-ignore
 import { UpdateFuelRequest } from '../model/update-fuel-request';
 // @ts-ignore
@@ -38,10 +46,16 @@ import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables'
 import { Configuration }                                     from '../configuration';
 import {
     FuelControllerServiceInterface,
+<<<<<<< HEAD
     Add2RequestParams,
     Delete2RequestParams,
     GetFuelByIdRequestParams,
     Update2RequestParams
+=======
+    CreateFuelRequestParams,
+    GetFuelByIdRequestParams,
+    UpdateFuelByIdRequestParams
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 } from './fuel-controller.serviceInterface';
 
 
@@ -115,6 +129,7 @@ export class FuelControllerService implements FuelControllerServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
+<<<<<<< HEAD
     public add2(requestParameters: Add2RequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreateFuelResponse>;
     public add2(requestParameters: Add2RequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreateFuelResponse>>;
     public add2(requestParameters: Add2RequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreateFuelResponse>>;
@@ -122,6 +137,15 @@ export class FuelControllerService implements FuelControllerServiceInterface {
         const createFuelRequest = requestParameters.createFuelRequest;
         if (createFuelRequest === null || createFuelRequest === undefined) {
             throw new Error('Required parameter createFuelRequest was null or undefined when calling add2.');
+=======
+    public createFuel(requestParameters: CreateFuelRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreatedFuelResponse>;
+    public createFuel(requestParameters: CreateFuelRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreatedFuelResponse>>;
+    public createFuel(requestParameters: CreateFuelRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreatedFuelResponse>>;
+    public createFuel(requestParameters: CreateFuelRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        const createFuelRequest = requestParameters.createFuelRequest;
+        if (createFuelRequest === null || createFuelRequest === undefined) {
+            throw new Error('Required parameter createFuelRequest was null or undefined when calling createFuel.');
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -169,8 +193,13 @@ export class FuelControllerService implements FuelControllerServiceInterface {
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/fuels/add`;
         return this.httpClient.request<CreateFuelResponse>('post', `${this.configuration.basePath}${localVarPath}`,
+=======
+        let localVarPath = `/api/v1/fuels`;
+        return this.httpClient.request<CreatedFuelResponse>('post', `${this.configuration.basePath}${localVarPath}`,
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
             {
                 context: localVarHttpContext,
                 body: createFuelRequest,
@@ -185,6 +214,7 @@ export class FuelControllerService implements FuelControllerServiceInterface {
     }
 
     /**
+<<<<<<< HEAD
      * @param requestParameters
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -197,6 +227,15 @@ export class FuelControllerService implements FuelControllerServiceInterface {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling delete2.');
         }
+=======
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getAllFuels(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<Array<GetAllFuelResponse>>;
+    public getAllFuels(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<GetAllFuelResponse>>>;
+    public getAllFuels(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<GetAllFuelResponse>>>;
+    public getAllFuels(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -234,6 +273,7 @@ export class FuelControllerService implements FuelControllerServiceInterface {
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/fuels/delete/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
         return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
@@ -294,6 +334,9 @@ export class FuelControllerService implements FuelControllerServiceInterface {
         }
 
         let localVarPath = `/api/fuels/get/all`;
+=======
+        let localVarPath = `/api/v1/fuels`;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         return this.httpClient.request<Array<GetAllFuelResponse>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -357,7 +400,11 @@ export class FuelControllerService implements FuelControllerServiceInterface {
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/fuels/get/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+=======
+        let localVarPath = `/api/v1/fuels/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         return this.httpClient.request<GetFuelByIdResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -376,6 +423,7 @@ export class FuelControllerService implements FuelControllerServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
+<<<<<<< HEAD
     public update2(requestParameters: Update2RequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UpdateFuelResponse>;
     public update2(requestParameters: Update2RequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateFuelResponse>>;
     public update2(requestParameters: Update2RequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateFuelResponse>>;
@@ -383,6 +431,19 @@ export class FuelControllerService implements FuelControllerServiceInterface {
         const updateFuelRequest = requestParameters.updateFuelRequest;
         if (updateFuelRequest === null || updateFuelRequest === undefined) {
             throw new Error('Required parameter updateFuelRequest was null or undefined when calling update2.');
+=======
+    public updateFuelById(requestParameters: UpdateFuelByIdRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UpdateFuelResponse>;
+    public updateFuelById(requestParameters: UpdateFuelByIdRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateFuelResponse>>;
+    public updateFuelById(requestParameters: UpdateFuelByIdRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateFuelResponse>>;
+    public updateFuelById(requestParameters: UpdateFuelByIdRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        const id = requestParameters.id;
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateFuelById.');
+        }
+        const updateFuelRequest = requestParameters.updateFuelRequest;
+        if (updateFuelRequest === null || updateFuelRequest === undefined) {
+            throw new Error('Required parameter updateFuelRequest was null or undefined when calling updateFuelById.');
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -430,7 +491,11 @@ export class FuelControllerService implements FuelControllerServiceInterface {
             }
         }
 
+<<<<<<< HEAD
         let localVarPath = `/api/fuels/update`;
+=======
+        let localVarPath = `/api/v1/fuels/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
         return this.httpClient.request<UpdateFuelResponse>('put', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,

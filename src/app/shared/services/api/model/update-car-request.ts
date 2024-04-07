@@ -12,9 +12,15 @@
 
 
 export interface UpdateCarRequest { 
+<<<<<<< HEAD
     id?: number;
     plate: string;
     state: number;
     dailyPrice: number;
+=======
+    plate?: string;
+    state?: number;
+    dailyPrice?: number;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 }
 

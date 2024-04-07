@@ -14,10 +14,17 @@ import { HttpHeaders }                                       from '@angular/comm
 import { Observable }                                        from 'rxjs';
 
 import { CreateModelRequest } from '../model/models';
+<<<<<<< HEAD
 import { CreateModelResponse } from '../model/models';
 import { GetAllModelResponse } from '../model/models';
 import { GetModelByIdResponse } from '../model/models';
 import { Update400Response } from '../model/models';
+=======
+import { CreatedModelResponse } from '../model/models';
+import { GetAllModelResponse } from '../model/models';
+import { GetModelByIdResponse } from '../model/models';
+import { GetTransmissionById400Response } from '../model/models';
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 import { UpdateModelRequest } from '../model/models';
 import { UpdateModelResponse } from '../model/models';
 
@@ -25,11 +32,19 @@ import { UpdateModelResponse } from '../model/models';
 import { Configuration }                                     from '../configuration';
 
 
+<<<<<<< HEAD
 export interface Add1RequestParams {
     createModelRequest: CreateModelRequest;
 }
 
 export interface Delete1RequestParams {
+=======
+export interface CreateModelRequestParams {
+    createModelRequest: CreateModelRequest;
+}
+
+export interface DeleteModelByIdRequestParams {
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
     id: number;
 }
 
@@ -37,7 +52,12 @@ export interface GetModelByIdRequestParams {
     id: number;
 }
 
+<<<<<<< HEAD
 export interface Update1RequestParams {
+=======
+export interface UpdateModelByIdRequestParams {
+    id: number;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
     updateModelRequest: UpdateModelRequest;
 }
 
@@ -51,20 +71,32 @@ export interface ModelControllerServiceInterface {
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     add1(requestParameters: Add1RequestParams, extraHttpRequestParams?: any): Observable<CreateModelResponse>;
+=======
+    createModel(requestParameters: CreateModelRequestParams, extraHttpRequestParams?: any): Observable<CreatedModelResponse>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     delete1(requestParameters: Delete1RequestParams, extraHttpRequestParams?: any): Observable<{}>;
+=======
+    deleteModelById(requestParameters: DeleteModelByIdRequestParams, extraHttpRequestParams?: any): Observable<{}>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
      * 
 */
+<<<<<<< HEAD
     getAll1(extraHttpRequestParams?: any): Observable<Array<GetAllModelResponse>>;
+=======
+    getAllModels(extraHttpRequestParams?: any): Observable<Array<GetAllModelResponse>>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
@@ -78,6 +110,10 @@ export interface ModelControllerServiceInterface {
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     update1(requestParameters: Update1RequestParams, extraHttpRequestParams?: any): Observable<UpdateModelResponse>;
+=======
+    updateModelById(requestParameters: UpdateModelByIdRequestParams, extraHttpRequestParams?: any): Observable<UpdateModelResponse>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
 }

@@ -12,7 +12,11 @@
 
 
 export interface UpdateModelRequest { 
+<<<<<<< HEAD
     id?: number;
     name: string;
+=======
+    name?: string;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 }
 

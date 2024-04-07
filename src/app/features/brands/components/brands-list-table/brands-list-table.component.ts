@@ -31,7 +31,11 @@ export class BrandsListTableComponent extends BrandsListBaseComponent {
   }
 
   deleteBrand(id: number) {
+<<<<<<< HEAD
     this.brandControllerService.delete4({ id }).subscribe({
+=======
+    this.brandControllerService.deleteBrandById({ id }).subscribe({
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
       complete: () => {
         this.getBrandsList();
       },

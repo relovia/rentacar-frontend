@@ -17,6 +17,9 @@ export interface GetAllModelResponse {
     brandId?: number;
     fuelId?: number;
     transmissionId?: number;
+<<<<<<< HEAD
     createdDate?: string;
+=======
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 }
 

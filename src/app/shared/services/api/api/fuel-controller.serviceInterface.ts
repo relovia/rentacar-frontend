@@ -14,10 +14,17 @@ import { HttpHeaders }                                       from '@angular/comm
 import { Observable }                                        from 'rxjs';
 
 import { CreateFuelRequest } from '../model/models';
+<<<<<<< HEAD
 import { CreateFuelResponse } from '../model/models';
 import { GetAllFuelResponse } from '../model/models';
 import { GetFuelByIdResponse } from '../model/models';
 import { Update400Response } from '../model/models';
+=======
+import { CreatedFuelResponse } from '../model/models';
+import { GetAllFuelResponse } from '../model/models';
+import { GetFuelByIdResponse } from '../model/models';
+import { GetTransmissionById400Response } from '../model/models';
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 import { UpdateFuelRequest } from '../model/models';
 import { UpdateFuelResponse } from '../model/models';
 
@@ -25,6 +32,7 @@ import { UpdateFuelResponse } from '../model/models';
 import { Configuration }                                     from '../configuration';
 
 
+<<<<<<< HEAD
 export interface Add2RequestParams {
     createFuelRequest: CreateFuelRequest;
 }
@@ -33,11 +41,22 @@ export interface Delete2RequestParams {
     id: number;
 }
 
+=======
+export interface CreateFuelRequestParams {
+    createFuelRequest: CreateFuelRequest;
+}
+
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 export interface GetFuelByIdRequestParams {
     id: number;
 }
 
+<<<<<<< HEAD
 export interface Update2RequestParams {
+=======
+export interface UpdateFuelByIdRequestParams {
+    id: number;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
     updateFuelRequest: UpdateFuelRequest;
 }
 
@@ -51,6 +70,7 @@ export interface FuelControllerServiceInterface {
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     add2(requestParameters: Add2RequestParams, extraHttpRequestParams?: any): Observable<CreateFuelResponse>;
 
     /**
@@ -59,12 +79,19 @@ export interface FuelControllerServiceInterface {
 * @param requestParameters
      */
     delete2(requestParameters: Delete2RequestParams, extraHttpRequestParams?: any): Observable<{}>;
+=======
+    createFuel(requestParameters: CreateFuelRequestParams, extraHttpRequestParams?: any): Observable<CreatedFuelResponse>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
      * 
 */
+<<<<<<< HEAD
     getAll2(extraHttpRequestParams?: any): Observable<Array<GetAllFuelResponse>>;
+=======
+    getAllFuels(extraHttpRequestParams?: any): Observable<Array<GetAllFuelResponse>>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
@@ -78,6 +105,10 @@ export interface FuelControllerServiceInterface {
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     update2(requestParameters: Update2RequestParams, extraHttpRequestParams?: any): Observable<UpdateFuelResponse>;
+=======
+    updateFuelById(requestParameters: UpdateFuelByIdRequestParams, extraHttpRequestParams?: any): Observable<UpdateFuelResponse>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
 }

@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+<<<<<<< HEAD
     "generate:apiservices": "openapi-generator-cli generate -g typescript-angular -i http://localhost:8080/v3/api-docs -o src/app/shared/services/api --additional-properties fileNaming=kebab-case,modelPropertyNaming=camelCase,withInterfaces=true,useSingleRequestParameter=true"
+=======
+    "generate:apiservices" : "openapi-generator-cli generate -i http://localhost:8080/v3/api-docs -g typescript-angular -o src/app/shared/services/api --additional-properties fileNaming=kebab-case,modelPropertyNaming=camelCase,withInterfaces=true,useSingleRequestParameter=true"
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
   },
   "private": true,
   "dependencies": {

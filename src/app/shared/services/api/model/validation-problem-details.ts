@@ -14,8 +14,13 @@
 export interface ValidationProblemDetails { 
     title?: string;
     detail?: string;
+<<<<<<< HEAD
     type?: string;
     status?: string;
+=======
+    status?: string;
+    type?: string;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
     errors?: { [key: string]: string; };
 }
 

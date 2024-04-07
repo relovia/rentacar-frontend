@@ -35,8 +35,13 @@ export class EditBrandFormComponent implements OnInit {
     private fb: FormBuilder,
     private brandsService: BrandsService,
     private brandControllerService: BrandControllerService,
+<<<<<<< HEAD
     private change: ChangeDetectorRef,
     private router: Router
+=======
+    private change:ChangeDetectorRef,
+    private router:Router
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +57,13 @@ export class EditBrandFormComponent implements OnInit {
 
   getBrand() {
     this.brandsService.getBrandById({ id: this.brandId }).subscribe((brand) => {
+<<<<<<< HEAD
+=======
+      console.log(
+        '🚀 ~ EditBrandFormComponent ~ this.brandsService.getBrandById ~ brand:',
+        brand
+      );
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
       this.form.patchValue({
         name: brand.name,
       });
@@ -60,9 +72,15 @@ export class EditBrandFormComponent implements OnInit {
 
   edit() {
     this.brandControllerService
+<<<<<<< HEAD
       .update4({
         updateBrandRequest: {
           id: this.brandId,
+=======
+      .updateBrandById({
+        id: this.brandId,
+        updateBrandRequest: {
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
           name: this.form.value.name,
         },
       })

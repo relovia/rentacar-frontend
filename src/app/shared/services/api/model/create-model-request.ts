@@ -12,9 +12,16 @@
 
 
 export interface CreateModelRequest { 
+<<<<<<< HEAD
     name: string;
     brandId: number;
     fuelId: number;
     transmissionId: number;
+=======
+    name?: string;
+    brandId?: number;
+    fuelId?: number;
+    transmissionId?: number;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 }
 

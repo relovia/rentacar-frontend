@@ -9,15 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { BusinessProblemDetails } from './business-problem-details';
+import { ValidationProblemDetails } from './validation-problem-details';
 
 
-export interface GetFuelByIdResponse { 
-    id?: number;
-    name?: string;
-<<<<<<< HEAD
-    message?: string;
-    createdDate?: string;
-=======
->>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
-}
+/**
+ * @type GetTransmissionById400Response
+ * @export
+ */
+export type GetTransmissionById400Response = BusinessProblemDetails | ValidationProblemDetails;
 

@@ -10,8 +10,13 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ButtonComponent,
+<<<<<<< HEAD
     RouterModule,
     BrandsListTableComponent,
+=======
+    BrandsListTableComponent,
+    RouterModule,
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
   ],
   templateUrl: './management-brands-page.component.html',
   styleUrl: './management-brands-page.component.scss',

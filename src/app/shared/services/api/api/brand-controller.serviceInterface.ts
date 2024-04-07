@@ -14,10 +14,17 @@ import { HttpHeaders }                                       from '@angular/comm
 import { Observable }                                        from 'rxjs';
 
 import { CreateBrandRequest } from '../model/models';
+<<<<<<< HEAD
 import { CreateBrandResponse } from '../model/models';
 import { GetAllBrandResponse } from '../model/models';
 import { GetBrandByIdResponse } from '../model/models';
 import { Update400Response } from '../model/models';
+=======
+import { CreatedBrandResponse } from '../model/models';
+import { GetAllBrandResponse } from '../model/models';
+import { GetBrandByIdResponse } from '../model/models';
+import { GetTransmissionById400Response } from '../model/models';
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 import { UpdateBrandRequest } from '../model/models';
 import { UpdateBrandResponse } from '../model/models';
 
@@ -25,11 +32,19 @@ import { UpdateBrandResponse } from '../model/models';
 import { Configuration }                                     from '../configuration';
 
 
+<<<<<<< HEAD
 export interface Add4RequestParams {
     createBrandRequest: CreateBrandRequest;
 }
 
 export interface Delete4RequestParams {
+=======
+export interface CreateBrandRequestParams {
+    createBrandRequest: CreateBrandRequest;
+}
+
+export interface DeleteBrandByIdRequestParams {
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
     id: number;
 }
 
@@ -37,7 +52,12 @@ export interface GetBrandByIdRequestParams {
     id: number;
 }
 
+<<<<<<< HEAD
 export interface Update4RequestParams {
+=======
+export interface UpdateBrandByIdRequestParams {
+    id: number;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
     updateBrandRequest: UpdateBrandRequest;
 }
 
@@ -51,20 +71,32 @@ export interface BrandControllerServiceInterface {
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     add4(requestParameters: Add4RequestParams, extraHttpRequestParams?: any): Observable<CreateBrandResponse>;
+=======
+    createBrand(requestParameters: CreateBrandRequestParams, extraHttpRequestParams?: any): Observable<CreatedBrandResponse>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     delete4(requestParameters: Delete4RequestParams, extraHttpRequestParams?: any): Observable<{}>;
+=======
+    deleteBrandById(requestParameters: DeleteBrandByIdRequestParams, extraHttpRequestParams?: any): Observable<{}>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
      * 
 */
+<<<<<<< HEAD
     getAll4(extraHttpRequestParams?: any): Observable<Array<GetAllBrandResponse>>;
+=======
+    getAllBrands(extraHttpRequestParams?: any): Observable<Array<GetAllBrandResponse>>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
     /**
      * 
@@ -78,6 +110,10 @@ export interface BrandControllerServiceInterface {
      * 
 * @param requestParameters
      */
+<<<<<<< HEAD
     update4(requestParameters: Update4RequestParams, extraHttpRequestParams?: any): Observable<UpdateBrandResponse>;
+=======
+    updateBrandById(requestParameters: UpdateBrandByIdRequestParams, extraHttpRequestParams?: any): Observable<UpdateBrandResponse>;
+>>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 
 }

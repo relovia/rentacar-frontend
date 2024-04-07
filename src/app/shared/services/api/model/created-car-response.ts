@@ -11,13 +11,12 @@
  */
 
 
-export interface GetFuelByIdResponse { 
+export interface CreatedCarResponse { 
     id?: number;
-    name?: string;
-<<<<<<< HEAD
-    message?: string;
-    createdDate?: string;
-=======
->>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
+    modelYear?: number;
+    plate?: string;
+    state?: number;
+    dailyPrice?: number;
+    modelId?: number;
 }
 
