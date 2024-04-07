@@ -6,4 +6,5 @@
 export interface BrandListItemDto {
   id: number;
   name: string;
+  createdDate: Date | string; // Backend'den string olarak dönebilir.
 }

@@ -4,7 +4,8 @@ import { HomeLayoutComponent } from '../../shared/layouts/home-layout/home-layou
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { BrandsListMenuComponent } from '../../features/brands/components/brands-list-menu/brands-list-menu.component';
 import { BrandListItemDto } from '../../features/brands/models/brand-list-item-dto';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { GetAllBrandResponse } from '../../shared/services/api';
 
 @Component({
   selector: 'app-home-page',
@@ -14,6 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     HomeLayoutComponent,
     ButtonComponent,
     BrandsListMenuComponent,
+    RouterModule,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
@@ -24,7 +26,8 @@ export class HomePageComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void { // Lifecycle hook // Component ilk oluşturulduğunda çalışır
+  ngOnInit(): void {
+    // Lifecycle hook // Component ilk oluşturulduğunda çalışır
     this.getSelectedBrandIdFromRoute();
   }
 
@@ -37,13 +40,10 @@ export class HomePageComponent implements OnInit {
         this.selectedBrandId !== Number.parseInt(params['brandId'])
       )
         this.selectedBrandId = Number.parseInt(params['brandId']);
-
-      // 1 == "1" true
-      // 1 === "1" false
     });
   }
 
-  onSelectBrand(seletedBrand: BrandListItemDto | null) {
+  onSelectBrand(seletedBrand: GetAllBrandResponse | null) {
     this.selectedBrandId = seletedBrand?.id ?? null;
 
     if (this.selectedBrandId !== null)

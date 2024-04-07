@@ -1,0 +1,27 @@
+<app-home-layout>
+  <h1>Customer List</h1>
+  <table appTable class="table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Company Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(customer of customers; track $index) {
+      <tr>
+        <th scope="row">{{ customer.id }}</th>
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.companyName }}</td>
+        <td></td>
+      </tr>
+      }s
+    </tbody>
+  </table>
+
+  <router-outlet></router-outlet>
+</app-home-layout>

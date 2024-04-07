@@ -1,0 +1,34 @@
+<table appTable class="table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Created</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (brand of brands; track $index) {
+    <tr>
+      <th scope="row">{{ brand.id }}</th>
+      <td>{{ brand.name }}</td>
+      <td>{{ brand.createdDate }}</td>
+      <td>
+        <div class="d-flex justify-content-end">
+          <app-button
+            [routerLink]="['/management/brands/edit', brand.id]"
+            variant="warning"
+            >Edit</app-button
+          >
+          <app-button
+            class="ms-3"
+            (click)="deleteBrand(brand.id!)"
+            variant="danger"
+            >Delete</app-button
+          >
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

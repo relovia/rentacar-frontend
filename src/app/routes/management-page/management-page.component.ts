@@ -6,11 +6,9 @@ import { HomeLayoutComponent } from '../../shared/layouts/home-layout/home-layou
 @Component({
   selector: 'app-management-page',
   standalone: true,
-  imports: [
-    CommonModule, RouterModule, HomeLayoutComponent
-  ],
+  imports: [CommonModule, RouterModule, HomeLayoutComponent],
   templateUrl: './management-page.component.html',
   styleUrl: './management-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ManagementPageComponent { }
+export class ManagementPageComponent {}
