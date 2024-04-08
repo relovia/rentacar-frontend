@@ -3,12 +3,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HomeLayoutComponent } from '../../shared/layouts/home-layout/home-layout.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { BrandsListMenuComponent } from '../../features/brands/components/brands-list-menu/brands-list-menu.component';
-<<<<<<< HEAD
 import { BrandListItemDto } from '../../features/brands/models/brand-list-item-dto';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-=======
-import { ActivatedRoute, Router } from '@angular/router';
->>>>>>> a055835ee9b8b7dbcc6674a078e2feb94a320cfd
 import { GetAllBrandResponse } from '../../shared/services/api';
 
 @Component({
