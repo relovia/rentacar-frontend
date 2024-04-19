@@ -13,8 +13,8 @@ import {
 } from '@angular/forms';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import {
-  Add4RequestParams,
   BrandControllerService,
+  CreateBrandRequestParams,
 } from '../../../../shared/services/api';
 import { Router } from '@angular/router';
 
@@ -48,13 +48,13 @@ export class AddBrandFormComponent implements OnInit {
   }
 
   add() {
-    const request: Add4RequestParams = {
+    const request: CreateBrandRequestParams = {
       createBrandRequest: {
         name: this.form.value.name,
       },
     };
 
-    this.brandServices.add4(request).subscribe({
+    this.brandServices.createBrand(request).subscribe({
       // Next: Observable'dan gelen veriyi yakaladığımız fonksiyon
       next: (response) => {
         console.log(response);
@@ -69,6 +69,10 @@ export class AddBrandFormComponent implements OnInit {
         this.formMessage = 'Brand added successfully';
         this.form.reset();
         this.change.markForCheck();
+
+        setTimeout(() => {
+          this.router.navigate(['/management', 'brands']);
+        }, 2000);
       },
     });
   }

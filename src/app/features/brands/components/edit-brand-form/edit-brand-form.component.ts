@@ -1,4 +1,3 @@
-import { BrandsService } from './../../services/brands.service';
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -33,8 +32,7 @@ export class EditBrandFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private brandsService: BrandsService,
-    private brandControllerService: BrandControllerService,
+    private brandsService: BrandControllerService,
     private change: ChangeDetectorRef,
     private router: Router
   ) {}
@@ -59,8 +57,8 @@ export class EditBrandFormComponent implements OnInit {
   }
 
   edit() {
-    this.brandControllerService
-      .update4({
+    this.brandsService
+      .updateBrand({
         updateBrandRequest: {
           id: this.brandId,
           name: this.form.value.name,

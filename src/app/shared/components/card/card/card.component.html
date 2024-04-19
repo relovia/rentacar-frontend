@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem">
+  @if (imageSrc) {
+  <img [src]="imageSrc" [alt]="imgAlt" class="card-img-top" />
+  }
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text">
+      {{ text }}
+    </p>
+    <button type="button" class="btn btn-primary" (click)="buttonClick.emit()">
+      {{ buttonLabel }}
+    </button>
+  </div>
+</div>

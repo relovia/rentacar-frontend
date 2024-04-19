@@ -6,8 +6,10 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { GetAllBrandResponse } from '../../../../shared/services/api';
-import { BrandsService } from '../../services/brands.service';
+import {
+  BrandControllerService,
+  GetAllBrandResponse,
+} from '../../../../shared/services/api';
 
 @Component({
   selector: 'app-brands-list-base',
@@ -25,7 +27,7 @@ export class BrandsListBaseComponent {
   initialSelectedBrandIndex: number | null = null;
 
   constructor(
-    private brandsService: BrandsService,
+    protected brandsService: BrandControllerService,
     private change: ChangeDetectorRef
   ) {}
 
@@ -36,22 +38,24 @@ export class BrandsListBaseComponent {
   }
 
   getBrandsList() {
-    this.brandsService.getBrands().subscribe((GetAllBrandResponse) => {
-      this.brands = GetAllBrandResponse;
+    this.brandsService
+      .getAllBrands()
+      .subscribe((response: GetAllBrandResponse[]) => {
+        this.brands = response.sort((a, b) => a.id! - b.id!);
 
-      if (this.initialSelectedBrandId) {
-        this.selectedBrand =
-          this.brands.find(
+        if (this.initialSelectedBrandId) {
+          this.selectedBrand =
+            this.brands.find(
+              (brand) => brand.id === this.initialSelectedBrandId
+            ) ?? null;
+          this.initialSelectedBrandIndex = this.brands.findIndex(
             (brand) => brand.id === this.initialSelectedBrandId
-          ) ?? null;
-        this.initialSelectedBrandIndex = this.brands.findIndex(
-          (brand) => brand.id === this.initialSelectedBrandId
-        );
-      }
+          );
+        }
 
-      // 3. OnPush, ChangeDetectorRef.markForCheck metodu ile componentin değişiklikleri algılaması sağlanır.
-      this.change.markForCheck();
-    });
+        // 3. OnPush, ChangeDetectorRef.markForCheck metodu ile componentin değişiklikleri algılaması sağlanır.
+        this.change.markForCheck();
+      });
   }
 
   // 2. OnPush, kullancı html üzerinden bir event tetiklendiğinde değişikliği algılar.

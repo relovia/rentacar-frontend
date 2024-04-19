@@ -7,6 +7,7 @@ import {
 import { TableDirective } from '../../../../shared/directives/table.directive';
 import { HomeLayoutComponent } from '../../../../shared/layouts/home-layout/home-layout.component';
 import { RouterModule } from '@angular/router';
+import { CarService } from '../../services/car.service';
 
 @Component({
   selector: 'app-car-list',
@@ -18,14 +19,14 @@ import { RouterModule } from '@angular/router';
 export class CarListComponent implements OnInit {
   cars: GetAllCarResponse[] = [];
 
-  constructor(private carService: CarControllerService) {}
+  constructor(private carService: CarService) {}
 
   ngOnInit(): void {
     this.loadCars();
   }
 
   loadCars(): void {
-    this.carService.getAll3().subscribe((cars: GetAllCarResponse[]) => {
+    this.carService.getAllCars().subscribe((cars: GetAllCarResponse[]) => {
       console.log(cars);
       this.cars = cars;
     });

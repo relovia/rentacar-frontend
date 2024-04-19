@@ -9,7 +9,6 @@ import { BrandsListBaseComponent } from '../brands-list-base/brands-list-base.co
 import { TableDirective } from '../../../../shared/directives/table.directive';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { RouterModule } from '@angular/router';
-import { BrandsService } from '../../services/brands.service';
 
 @Component({
   selector: 'app-brands-list-table',
@@ -21,9 +20,8 @@ import { BrandsService } from '../../services/brands.service';
 })
 export class BrandsListTableComponent extends BrandsListBaseComponent {
   constructor(
-    brandsService: BrandsService,
-    change: ChangeDetectorRef,
-    private brandControllerService: BrandControllerService
+    brandsService: BrandControllerService,
+    change: ChangeDetectorRef
   ) {
     // Alt sınıfta bir constructor tanımlandığında super() ile üst sınıfın constructor'ı da çağrılmalıdır.
 
@@ -31,7 +29,7 @@ export class BrandsListTableComponent extends BrandsListBaseComponent {
   }
 
   deleteBrand(id: number) {
-    this.brandControllerService.delete4({ id }).subscribe({
+    this.brandsService.deleteBrand({ id }).subscribe({
       complete: () => {
         this.getBrandsList();
       },
