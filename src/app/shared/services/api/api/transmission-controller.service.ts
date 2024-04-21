@@ -115,10 +115,10 @@ export class TransmissionControllerService implements TransmissionControllerServ
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<CreateTransmissionResponse>;
-    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreateTransmissionResponse>>;
-    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreateTransmissionResponse>>;
-    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<CreateTransmissionResponse>;
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreateTransmissionResponse>>;
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreateTransmissionResponse>>;
+    public createTransmission(requestParameters: CreateTransmissionRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         const createTransmissionRequest = requestParameters.createTransmissionRequest;
         if (createTransmissionRequest === null || createTransmissionRequest === undefined) {
             throw new Error('Required parameter createTransmissionRequest was null or undefined when calling createTransmission.');
@@ -130,7 +130,8 @@ export class TransmissionControllerService implements TransmissionControllerServ
         if (localVarHttpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                '*/*'
+                '*/*',
+                'application/json'
             ];
             localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }
@@ -313,10 +314,10 @@ export class TransmissionControllerService implements TransmissionControllerServ
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<GetTransmissionByIdResponse>;
-    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetTransmissionByIdResponse>>;
-    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetTransmissionByIdResponse>>;
-    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetTransmissionByIdResponse>;
+    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetTransmissionByIdResponse>>;
+    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetTransmissionByIdResponse>>;
+    public getTransmissionById(requestParameters: GetTransmissionByIdRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         const id = requestParameters.id;
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getTransmissionById.');
@@ -328,7 +329,8 @@ export class TransmissionControllerService implements TransmissionControllerServ
         if (localVarHttpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                '*/*'
+                '*/*',
+                'application/json'
             ];
             localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }
@@ -377,10 +379,10 @@ export class TransmissionControllerService implements TransmissionControllerServ
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<UpdateTransmissionResponse>;
-    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateTransmissionResponse>>;
-    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateTransmissionResponse>>;
-    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<UpdateTransmissionResponse>;
+    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateTransmissionResponse>>;
+    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateTransmissionResponse>>;
+    public updateTransmission(requestParameters: UpdateTransmissionRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         const updateTransmissionRequest = requestParameters.updateTransmissionRequest;
         if (updateTransmissionRequest === null || updateTransmissionRequest === undefined) {
             throw new Error('Required parameter updateTransmissionRequest was null or undefined when calling updateTransmission.');
@@ -392,7 +394,8 @@ export class TransmissionControllerService implements TransmissionControllerServ
         if (localVarHttpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                '*/*'
+                '*/*',
+                'application/json'
             ];
             localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }

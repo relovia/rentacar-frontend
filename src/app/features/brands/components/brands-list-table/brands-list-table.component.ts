@@ -9,30 +9,56 @@ import { BrandsListBaseComponent } from '../brands-list-base/brands-list-base.co
 import { TableDirective } from '../../../../shared/directives/table.directive';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { RouterModule } from '@angular/router';
+import { ConfirmationPopUpComponent } from '../../../../shared/components/confirmation-pop-up/confirmation-pop-up.component';
 
 @Component({
   selector: 'app-brands-list-table',
   standalone: true,
-  imports: [CommonModule, TableDirective, ButtonComponent, RouterModule],
+  imports: [
+    CommonModule,
+    TableDirective,
+    ButtonComponent,
+    RouterModule,
+    ConfirmationPopUpComponent,
+  ],
   templateUrl: './brands-list-table.component.html',
   styleUrl: './brands-list-table.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrandsListTableComponent extends BrandsListBaseComponent {
+  showDeleteConfirmation: boolean = false;
+  deletingBrandId: number | null = null;
+
   constructor(
     brandsService: BrandControllerService,
     change: ChangeDetectorRef
   ) {
     // Alt sınıfta bir constructor tanımlandığında super() ile üst sınıfın constructor'ı da çağrılmalıdır.
-
     super(brandsService, change); // super ana sınıfın constructor'ını çağırır.
   }
 
   deleteBrand(id: number) {
-    this.brandsService.deleteBrand({ id }).subscribe({
-      complete: () => {
-        this.getBrandsList();
-      },
-    });
+    this.deletingBrandId = id;
+    this.showDeleteConfirmation = true;
+  }
+
+  onDeleteConfirm() {
+    if (this.deletingBrandId !== null) {
+      this.brandsService.deleteBrand({ id: this.deletingBrandId }).subscribe({
+        complete: () => {
+          this.getBrandsList();
+        },
+      });
+    }
+    this.resetDeleteConfirmation();
+  }
+
+  onDeleteCancel() {
+    this.resetDeleteConfirmation();
+  }
+
+  private resetDeleteConfirmation() {
+    this.deletingBrandId = null;
+    this.showDeleteConfirmation = false;
   }
 }

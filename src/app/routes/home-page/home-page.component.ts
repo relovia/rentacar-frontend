@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HomeLayoutComponent } from '../../shared/layouts/home-layout/home-layout.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { BrandsListMenuComponent } from '../../features/brands/components/brands-list-menu/brands-list-menu.component';
-import { BrandListItemDto } from '../../features/brands/models/brand-list-item-dto';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { GetAllBrandResponse } from '../../shared/services/api';
 import { ModelsCardListComponent } from '../../features/models/components/models-card-list/models-card-list.component';

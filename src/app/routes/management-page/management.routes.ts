@@ -3,10 +3,13 @@ import { ManagementPageComponent } from './management-page.component';
 import { authGuard } from '../../shared/guards/auth.guard';
 import { ManagementBrandsPageComponent } from './management-brands-page/management-brands-page.component';
 import { ManagementCreateBrandPageComponent } from './management-brands-page/management-create-brand-page/management-create-brand-page.component';
-import { ManagementEditBrandPageComponent } from './management-edit-brand-page/management-edit-brand-page.component';
 import { ManagementModelsPageComponent } from './management-models-page/management-models-page.component';
 import { ManagementCreateModelPageComponent } from './management-models-page/management-create-model-page/management-create-model-page.component';
 import { ManagementEditModelPageComponent } from './management-models-page/management-edit-model-page/management-edit-model-page.component';
+import { ManagementEditBrandPageComponent } from './management-brands-page/management-edit-brand-page/management-edit-brand-page.component';
+import { ManagementCarsPageComponent } from './management-cars-page/management-cars-page.component';
+import { ManagementCreateCarPageComponent } from './management-cars-page/management-create-car-page/management-create-car-page.component';
+import { ManagementEditCarPageComponent } from './management-cars-page/management-edit-car-page/management-edit-car-page.component';
 
 export const managementRoutes: Routes = [
   {
@@ -47,6 +50,20 @@ export const managementRoutes: Routes = [
       {
         path: 'models/edit/:modelId',
         component: ManagementEditModelPageComponent,
+      },
+
+      // Cars
+      {
+        path: 'cars',
+        component: ManagementCarsPageComponent,
+      },
+      {
+        path: 'cars/create',
+        component: ManagementCreateCarPageComponent,
+      },
+      {
+        path: 'cars/edit/:carId',
+        component: ManagementEditCarPageComponent,
       },
     ],
   },

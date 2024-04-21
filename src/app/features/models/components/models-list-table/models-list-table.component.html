@@ -3,7 +3,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Created</th>
+      <th scope="col">View Details</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -12,16 +12,23 @@
     <tr>
       <th scope="row">{{ model.id }}</th>
       <td>{{ model.name }}</td>
-      <td>{{ model.createdDate }}</td>
+      <td>
+        <a [routerLink]="['/models/detail/', model.id]" class="btn btn-success">
+          View Details
+        </a>
+      </td>
+      <td></td>
       <td>
         <div class="d-flex justify-content-end">
           <app-button
-            [routerLink]="['/management/model/edit', model.id]"
+            [routerLink]="['/management/models/edit', model.id]"
             variant="warning"
             >Edit</app-button
           >
           <app-button
             class="ms-3"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteConfirmationModal"
             (click)="deleteModel(model.id!)"
             variant="danger"
             >Delete</app-button
@@ -32,3 +39,9 @@
     }
   </tbody>
 </table>
+
+<app-confirmation-pop-up
+  *ngIf="showDeleteConfirmation"
+  (confirm)="onDeleteConfirm()"
+  (cancel)="onDeleteCancel()"
+></app-confirmation-pop-up>

@@ -19,10 +19,12 @@ export class HomeLayoutComponent {
     { label: 'Home', link: '/' },
     { label: 'About', link: '/about' },
     { label: 'Customers', link: '/customers' },
-    { label: 'Cars', link: '/cars' },
-    { label: 'Management', link: '/management' },
-    { label: 'Brands Management', link: '/management/brands' },
-    { label: 'Models Management', link: '/management/models' },
     { label: 'Contact', link: 'mailto:emrecivan06x@gmail.com' },
+  ];
+
+  managementNavItems: NavItem[] = [
+    { label: 'Brands Management', link: '/management/brands' },
+    { label: 'Cars Management', link: '/management/cars' },
+    { label: 'Models Management', link: '/management/models' },
   ];
 }

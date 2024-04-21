@@ -2,9 +2,23 @@
   <div
     class="d-flex flex-column justify-content-center align-items-center min-vh-100"
   >
-    <app-brands-list-menu> </app-brands-list-menu>
     <h1>Welcome to our rental gallery!</h1>
     <app-button [routerLink]="['/management/brands']"> View Models </app-button>
-    <app-models-card-list> </app-models-card-list>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <app-brands-list-menu
+          [initialSelectedBrandId]="selectedBrandId"
+          (selectBrand)="onSelectBrand($event)"
+        ></app-brands-list-menu>
+      </div>
+
+      <div class="col-8">
+        <app-models-card-list [brandId]="selectedBrandId">
+        </app-models-card-list>
+      </div>
+    </div>
   </div>
 </app-home-layout>

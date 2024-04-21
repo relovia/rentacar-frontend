@@ -75,6 +75,10 @@ export class AddModelFormComponent implements OnInit {
         this.formMessage = 'Model added successfully';
         this.form.reset();
         this.change.markForCheck();
+
+        setTimeout(() => {
+          this.router.navigate(['/management', 'models']);
+        }, 2000);
       },
     });
   }

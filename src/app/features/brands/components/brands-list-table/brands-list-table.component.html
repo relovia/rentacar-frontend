@@ -3,7 +3,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Created</th>
+      <th scope="col">Created Date</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -22,6 +22,8 @@
           >
           <app-button
             class="ms-3"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteConfirmationModal"
             (click)="deleteBrand(brand.id!)"
             variant="danger"
             >Delete</app-button
@@ -32,3 +34,9 @@
     }
   </tbody>
 </table>
+
+<app-confirmation-pop-up
+  *ngIf="showDeleteConfirmation"
+  (confirm)="onDeleteConfirm()"
+  (cancel)="onDeleteCancel()"
+></app-confirmation-pop-up>

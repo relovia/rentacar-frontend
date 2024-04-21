@@ -17,7 +17,6 @@ export type NavTitle =
   | {
       text: string;
       routerLink?: string | string[];
-      // routerLink: string | undefined;
     }
   | undefined;
 
@@ -27,7 +26,7 @@ export type NavTitle =
   imports: [
     CommonModule, //ngFor
     RouterModule, //routerLink
-    ButtonComponent
+    ButtonComponent,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
@@ -35,10 +34,8 @@ export type NavTitle =
 export class NavbarComponent {
   @Input() title: NavTitle;
   @Input() navItems: NavItem[] = [];
+  @Input() managementNavItems: NavItem[] = [];
   @Input() endContentTemplate?: TemplateRef<any>;
-  // @Input() endContent?: TemplateRef<any>;
-  // @Input() endContent?: TemplateRef<any>;
-  // @Input() endContent?: TemplateRef<any>;
 
   isUrl(url: string): boolean {
     return (
