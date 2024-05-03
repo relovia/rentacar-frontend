@@ -9,4 +9,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {}
+export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+}

@@ -14,16 +14,18 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'JavaFS3ARentACar' title`, () => {
+  it(`should have the 'Rent A Car' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('JavaFS3ARentACar');
+    expect(app.title).toEqual('Rent A Car');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, JavaFS3ARentACar');
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Hello, Rent A Car'
+    );
   });
 });

@@ -1,1 +1,26 @@
-<p>not-found-page works!</p>,
+<div
+  class="container min-vh-100 d-flex flex-column justify-content-center align-items-center text-center"
+>
+  <img
+    src="https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg"
+    alt="404"
+  />
+  <div class="row">
+    <div class="col-md-12">
+      <div class="container">
+        <h1 class="display-1">Oops!</h1>
+        <h2 class="text-danger display-4 fw-semibold">404 Not Found</h2>
+        <div class="fs-3">
+          Sorry, an error has occured, Requested page not found!
+        </div>
+        <div class="mt-4">
+          <a routerLink="/" class="btn btn-lg btn-primary me-2"
+            ><span class="glyphicon glyphicon-home"></span> Take Me Home </a
+          ><a [routerLink]="['/contact']" class="btn btn-lg btn-warning ms-2"
+            ><span class="glyphicon glyphicon-envelope"></span> Contact Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

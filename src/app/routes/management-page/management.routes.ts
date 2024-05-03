@@ -10,6 +10,9 @@ import { ManagementEditBrandPageComponent } from './management-brands-page/manag
 import { ManagementCarsPageComponent } from './management-cars-page/management-cars-page.component';
 import { ManagementCreateCarPageComponent } from './management-cars-page/management-create-car-page/management-create-car-page.component';
 import { ManagementEditCarPageComponent } from './management-cars-page/management-edit-car-page/management-edit-car-page.component';
+import { ManagementTransmissionsPageComponent } from './management-transmissions-page/management-transmissions-page.component';
+import { ManagementCreateTransmissionPageComponent } from './management-transmissions-page/management-create-transmission-page/management-create-transmission-page.component';
+import { ManagementEditTransmissionPageComponent } from './management-transmissions-page/management-edit-transmission-page/management-edit-transmission-page.component';
 
 export const managementRoutes: Routes = [
   {
@@ -64,6 +67,20 @@ export const managementRoutes: Routes = [
       {
         path: 'cars/edit/:carId',
         component: ManagementEditCarPageComponent,
+      },
+
+      // Transmissions
+      {
+        path: 'transmissions',
+        component: ManagementTransmissionsPageComponent,
+      },
+      {
+        path: 'transmissions/create',
+        component: ManagementCreateTransmissionPageComponent,
+      },
+      {
+        path: 'transmissions/edit/:transmissionId',
+        component: ManagementEditTransmissionPageComponent,
       },
     ],
   },

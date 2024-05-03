@@ -40,7 +40,14 @@ export class CarsListBaseComponent {
 
   getCarsList() {
     this.carsService.getAllCars().subscribe((response: GetAllCarResponse[]) => {
-      this.cars = response.sort((a, b) => a.id! - b.id!);
+      this.cars = response.sort((a, b) => {
+        // a.modelName ve b.modelName ile öğelerin isimlerine erişin ve karşılaştırın
+        if (a.modelName && b.modelName) {
+          return a.modelName.localeCompare(b.modelName); // String isimlerine göre sıralama
+        }
+        return 0; // İsimlerden biri yoksa veya null ise sıralama yapma
+      });
+
       if (this.initialSelectedCarId) {
         this.selectedCar =
           this.cars.find((car) => car.id === this.initialSelectedCarId) ?? null;

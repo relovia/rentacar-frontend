@@ -36,6 +36,7 @@ export class ModelsCardListComponent
   implements OnInit
 {
   @Input() brandId: number | null = null;
+  @Input() transmissionId: number | null = null;
 
   get filteredModels(): GetAllModelResponse[] {
     let newList: GetAllModelResponse[] = this.models;
@@ -43,6 +44,13 @@ export class ModelsCardListComponent
     if (this.brandId) {
       newList = newList.filter((model) => model.brandId === this.brandId);
     }
+
+    if (this.transmissionId) {
+      newList = newList.filter(
+        (model) => model.transmissionId === this.transmissionId
+      );
+    }
+
     return newList;
   }
 
@@ -107,6 +115,8 @@ export class ModelsCardListComponent
     )?.name;
     this.transmissions.sort((a, b) => a.id! - b.id!);
 
-    return `Brand: ${brandName} \n Fuel: ${fuelName} \n Transmission: ${transmissionName}`;
+    return `Brand: ${brandName || 'Unknown'} | Fuel: ${
+      fuelName || 'Unknown'
+    } | Transmission: ${transmissionName || 'Unknown'}`;
   }
 }

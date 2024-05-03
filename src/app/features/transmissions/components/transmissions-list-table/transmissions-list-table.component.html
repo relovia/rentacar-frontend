@@ -1,0 +1,41 @@
+<table appTable class="table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (transmission of transmissions; track $index) {
+    <tr>
+      <th scope="row">{{ transmission.id }}</th>
+      <td>{{ transmission.name }}</td>
+      <td></td>
+      <td>
+        <div class="d-flex justify-content-end">
+          <app-button
+            [routerLink]="['/management/transmissions/edit', transmission.id]"
+            variant="warning"
+            >Edit</app-button
+          >
+          <app-button
+            class="ms-3"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteConfirmationModal"
+            (click)="deleteTransmission(transmission.id!)"
+            variant="danger"
+            >Delete</app-button
+          >
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<app-confirmation-pop-up
+  *ngIf="showDeleteConfirmation"
+  (confirm)="onDeleteConfirm()"
+  (cancel)="onDeleteCancel()"
+></app-confirmation-pop-up>

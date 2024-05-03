@@ -41,7 +41,13 @@ export class BrandsListBaseComponent {
     this.brandsService
       .getAllBrands()
       .subscribe((response: GetAllBrandResponse[]) => {
-        this.brands = response.sort((a, b) => a.id! - b.id!);
+        this.brands = response.sort((a, b) => {
+          // a.name ve b.name ile öğelerin isimlerine erişin ve karşılaştırın
+          if (a.name && b.name) {
+            return a.name.localeCompare(b.name); // String isimlerine göre sıralama
+          }
+          return 0; // İsimlerden biri yoksa veya null ise sıralama yapma
+        });
 
         if (this.initialSelectedBrandId) {
           this.selectedBrand =
