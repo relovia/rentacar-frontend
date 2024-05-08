@@ -13,16 +13,11 @@ import {
   GetAllFuelResponse,
   GetAllModelResponse,
   GetAllTransmissionResponse,
-  GetBrandByIdResponse,
-  GetFuelByIdResponse,
-  GetTransmissionByIdResponse,
   ModelControllerService,
   TransmissionControllerService,
 } from '../../../../shared/services/api';
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
 import { CardComponent } from '../../../../shared/components/card/card/card.component';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { transition } from '@angular/animations';
 
 @Component({
   selector: 'app-models-card-list',

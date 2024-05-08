@@ -13,7 +13,10 @@
       <th scope="row">{{ model.id }}</th>
       <td>{{ model.name }}</td>
       <td>
-        <a [routerLink]="['/models/detail/', model.id]" class="btn btn-success">
+        <a
+          [routerLink]="['/management/models/detail/', model.id]"
+          class="btn btn-success"
+        >
           View Details
         </a>
       </td>

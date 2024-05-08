@@ -38,8 +38,14 @@ export class ModelsListBaseComponent {
   }
 
   getModelsList() {
-    this.modelsService.getAllModels().subscribe((GetAllModelResponse) => {
-      this.models = GetAllModelResponse;
+    this.modelsService.getAllModels().subscribe((response) => {
+      this.models = response.sort((a, b) => {
+        // a.name ve b.name ile öğelerin isimlerine erişin ve karşılaştırın
+        if (a.name && b.name) {
+          return a.name.localeCompare(b.name); // String isimlerine göre sıralama
+        }
+        return 0; // İsimlerden biri yoksa veya null ise sıralama yapma
+      });
 
       if (this.initialSelectedModelId) {
         this.selectedModel =

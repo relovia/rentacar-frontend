@@ -13,6 +13,7 @@ import { ManagementEditCarPageComponent } from './management-cars-page/managemen
 import { ManagementTransmissionsPageComponent } from './management-transmissions-page/management-transmissions-page.component';
 import { ManagementCreateTransmissionPageComponent } from './management-transmissions-page/management-create-transmission-page/management-create-transmission-page.component';
 import { ManagementEditTransmissionPageComponent } from './management-transmissions-page/management-edit-transmission-page/management-edit-transmission-page.component';
+import { ManagementModelDetailPageComponent } from './management-models-page/management-model-detail-page/management-model-detail-page.component';
 
 export const managementRoutes: Routes = [
   {
@@ -53,6 +54,14 @@ export const managementRoutes: Routes = [
       {
         path: 'models/edit/:modelId',
         component: ManagementEditModelPageComponent,
+      },
+      {
+        path: 'models/detail/:modelId',
+        component: ManagementModelDetailPageComponent,
+      },
+      {
+        path: 'models/detail/rent',
+        component: ManagementModelDetailPageComponent,
       },
 
       // Cars
