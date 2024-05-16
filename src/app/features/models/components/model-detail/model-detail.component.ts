@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
 import {
   GetAllBrandResponse,
@@ -16,7 +16,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './model-detail.component.html',
   styleUrl: './model-detail.component.scss',
 })
-export class ModelDetailComponent extends ModelsListBaseComponent {
+export class ModelDetailComponent
+  extends ModelsListBaseComponent
+  implements OnInit
+{
   @Input() model: GetAllModelResponse | null = null;
   @Input() car: GetAllCarResponse | null = null;
   @Input() brand: GetAllBrandResponse | null = null;
@@ -25,10 +28,33 @@ export class ModelDetailComponent extends ModelsListBaseComponent {
   brands: GetAllBrandResponse[] = [];
   transmissions: GetAllTransmissionResponse[] = [];
 
+  override ngOnInit(): void {
+    if (this.model) {
+      this.getModelCardDetail(this.model);
+    }
+  }
+
   getModelCardDetail(model: GetAllModelResponse) {
-    this.brands?.find((brands) => brands.id === model.brandId);
-    this.transmissions?.find(
+    console.log('getModelCardDetail is called with model:', model);
+
+    const foundBrand = this.brands?.find((brand) => brand.id === model.brandId);
+    debugger;
+    console.log('Found brand:', foundBrand);
+
+    const foundTransmission = this.transmissions?.find(
       (transmission) => transmission.id === model.transmissionId
     );
+    console.log('Found transmission:', foundTransmission);
+
+    // Eğer bulunan marka ve şanzıman varsa, state'lere atayabiliriz
+    if (foundBrand) {
+      this.brand = foundBrand;
+      console.log('Brand is assigned:', this.brand);
+    }
+
+    if (foundTransmission) {
+      this.transmission = foundTransmission;
+      console.log('Transmission is assigned:', this.transmission);
+    }
   }
 }

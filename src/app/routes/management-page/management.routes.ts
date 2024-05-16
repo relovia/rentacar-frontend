@@ -14,6 +14,7 @@ import { ManagementTransmissionsPageComponent } from './management-transmissions
 import { ManagementCreateTransmissionPageComponent } from './management-transmissions-page/management-create-transmission-page/management-create-transmission-page.component';
 import { ManagementEditTransmissionPageComponent } from './management-transmissions-page/management-edit-transmission-page/management-edit-transmission-page.component';
 import { ManagementModelDetailPageComponent } from './management-models-page/management-model-detail-page/management-model-detail-page.component';
+import { ManagementRentalsPageComponent } from './management-rentals-page/management-rentals-page.component';
 
 export const managementRoutes: Routes = [
   {
@@ -60,8 +61,8 @@ export const managementRoutes: Routes = [
         component: ManagementModelDetailPageComponent,
       },
       {
-        path: 'models/detail/rent',
-        component: ManagementModelDetailPageComponent,
+        path: 'models/rent',
+        component: ManagementRentalsPageComponent,
       },
 
       // Cars

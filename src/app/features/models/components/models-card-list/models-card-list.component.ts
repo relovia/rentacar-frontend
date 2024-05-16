@@ -71,9 +71,6 @@ export class ModelsCardListComponent
   getModelRelations(): void {
     // Brand
     this.brandsServices.getAllBrands().subscribe((brands) => {
-      // console.log(
-      //   `Brands: ${brands.map((brand) => JSON.stringify(brand)).join(', ')}`
-      // );
       console.log('Brands', brands);
       this.brands = brands;
       this.change.markForCheck();

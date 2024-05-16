@@ -72,8 +72,7 @@ export class HomePageComponent implements OnInit {
     if (this.selectedTransmissionId !== null) {
       this.router.navigate([''], {
         queryParams: {
-          transmissionId: this.selectedTransmissionId, // ?transmissionId=1
-          // transmissionId: [1, 2] // ?transmissionId=1&transmissionId=2
+          transmissionId: this.selectedTransmissionId,
         },
       });
     } else this.router.navigate(['']);
