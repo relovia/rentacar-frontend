@@ -48,7 +48,6 @@ export class ManagementModelDetailPageComponent implements OnInit {
       if (!modelId) return;
 
       this.modelId = Number(modelId);
-      console.log('modelId:', this.modelId);
 
       this.fetchModelDetails(this.modelId);
     });
@@ -64,17 +63,14 @@ export class ManagementModelDetailPageComponent implements OnInit {
 
       if (model.brandId !== undefined) {
         this.fetchBrandDetails(model.brandId);
-        console.log('Brand Id:', model.brandId);
       }
 
       if (model.transmissionId !== undefined) {
         this.fetchTransmissionDetails(model.transmissionId);
-        console.log('Transmission Id:', model.transmissionId);
       }
 
       if (model.id !== undefined) {
         this.fetchCarDetails(model.id);
-        console.log('Car Id:', model.id);
       }
     });
   }
@@ -103,7 +99,7 @@ export class ManagementModelDetailPageComponent implements OnInit {
 
   private fetchCarDetails(modelId: number) {
     this.carsService.getAllCars().subscribe((cars) => {
-      const car = cars.find((c) => c.modelId === modelId);
+      const car = cars.find((car) => car.modelId === modelId);
       this.car = car || null;
       console.log('Fetched car:', this.car);
     });
