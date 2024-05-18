@@ -29,13 +29,10 @@ export class ModelDetailComponent
   implements OnInit
 {
   modelId!: number;
-  @Input() model: GetAllModelResponse | null = null;
-  @Input() brand: GetAllBrandResponse | null = null;
-  @Input() transmission: GetAllTransmissionResponse | null = null;
-  @Input() car: GetAllCarResponse | null = null;
-
-  brands: GetAllBrandResponse[] = [];
-  transmissions: GetAllTransmissionResponse[] = [];
+  @Input() model!: GetAllModelResponse;
+  @Input() brand!: GetAllBrandResponse;
+  @Input() transmission!: GetAllTransmissionResponse;
+  @Input() car!: GetAllCarResponse;
 
   constructor(
     modelsService: ModelControllerService,
@@ -48,86 +45,62 @@ export class ModelDetailComponent
   }
 
   override ngOnInit(): void {
-    this.getModelCardDetail(this.model!);
-    this.fetchBrandDetails(this.model!.brandId!);
-    this.fetchTransmissionDetails(this.model!.transmissionId!);
-    this.fetchCarDetails(this.model!.id!);
+    console.log('model', this.model);
+    console.log('brand', this.brand);
+    console.log('transmission', this.transmission);
+    console.log('car', this.car);
+
     this.change.markForCheck();
+    if (this.modelId) {
+      this.fetchModelDetails(this.model?.id!);
+    }
+    if (this.brand) {
+      this.fetchBrandDetails(this.brand.id!);
+    }
+    if (this.transmission) {
+      this.fetchTransmissionDetails(this.transmission.id!);
+    }
+    if (this.car) {
+      this.fetchCarDetails(this.car.modelId!);
+    }
   }
 
-  private getModelCardDetail(model: GetAllModelResponse): void {
-    if (!model) {
-      return;
-    }
-
-    let modelParams: GetModelByIdRequestParams;
-
-    if (model.id !== undefined) {
-      modelParams = {
-        id: model.id,
-      };
-
-      this.modelsService.getModelById(modelParams).subscribe((model) => {
-        this.model = model;
-        console.log('Fetched model:', this.model);
-
-        if (model.brandId !== undefined) {
-          this.fetchBrandDetails(model.brandId);
-          console.log('Brand Id:', model.brandId);
-        }
-
-        if (model.transmissionId !== undefined) {
-          this.fetchTransmissionDetails(model.transmissionId);
-          console.log('Transmission Id:', model.transmissionId);
-        }
-
-        if (model.id !== undefined) {
-          this.fetchCarDetails(model.id);
-          console.log('Car Id:', model.id);
-        }
-      });
-    }
+  // Model
+  private fetchModelDetails(modelId: number) {
+    this.modelsService.getAllModels().subscribe((models) => {
+      const model = models.find((model) => model.id === modelId);
+      this.model = model!;
+      console.log('Fetched model:', this.model);
+    });
   }
 
   // Brand
   private fetchBrandDetails(brandId: number) {
-    const brandParams: GetBrandByIdRequestParams = {
-      id: brandId,
-    };
-
-    this.brandsService.getBrandById(brandParams).subscribe(
-      (brand) => {
-        this.brand = brand;
-        console.log('Fetched brand:', this.brand);
-      },
-      (error) => {
-        console.error('Error fetching brand:', error);
-      }
-    );
+    this.brandsService.getAllBrands().subscribe((brands) => {
+      const brand = brands.find((brand) => brand.id === brandId);
+      this.brand = brand!;
+      console.log('Fetched brand:', this.brand);
+    });
   }
 
   // Transmission
   private fetchTransmissionDetails(transmissionId: number) {
-    const transmissionParams: GetTransmissionByIdRequestParams = {
-      id: transmissionId,
-    };
-
     this.transmissionsService
-      .getTransmissionById(transmissionParams)
-      .subscribe((transmission) => {
-        this.transmission = transmission;
+      .getAllTransmissions()
+      .subscribe((transmissions) => {
+        const transmission = transmissions.find(
+          (transmission) => transmission.id === transmissionId
+        );
+        this.transmission = transmission!;
         console.log('Fetched transmission:', this.transmission);
       });
   }
 
   // Car
-  private fetchCarDetails(carId: number) {
-    const carParams: GetCarByIdRequestParams = {
-      id: carId,
-    };
-
-    this.carsService.getCarById(carParams).subscribe((car) => {
-      this.car = car;
+  private fetchCarDetails(modelId: number) {
+    this.carsService.getAllCars().subscribe((cars) => {
+      const car = cars.find((car) => car.modelId === modelId);
+      this.car = car!;
       console.log('Fetched car:', this.car);
     });
   }

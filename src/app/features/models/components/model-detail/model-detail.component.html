@@ -1,12 +1,10 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{ model?.name }}</h5>
-    <p class="card-text">Brand: {{ model?.brandId }}</p>
-    <p class="card-text">Model Year: {{ car?.modelYear }}</p>
-    <p class="card-text">Transmission Type: {{ model?.transmissionId }}</p>
-    <p class="card-text">
-      Color: {{ model?.name || "Color will show next patch" }}
-    </p>
+    <h5 class="card-title">{{ model.name }}</h5>
+    <p class="card-text">Brand: {{ brand.name }}</p>
+    <p class="card-text">Model Year: {{ car.modelYear }}</p>
+    <p class="card-text">Transmission Type: {{ transmission.name }}</p>
+    <p class="card-text">Color: {{ car.modelYear || "Blue" }}</p>
     <a
       [routerLink]="['/management/models/rent']"
       class="btn btn-lg btn-primary text-center d-flex justify-content-center align-items-center"
