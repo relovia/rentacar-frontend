@@ -45,6 +45,7 @@ export class EditModelFormComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
+      color: ['', [Validators.required]],
     });
   }
 
@@ -52,6 +53,7 @@ export class EditModelFormComponent implements OnInit {
     this.modelsService.getModelById({ id: this.modelId }).subscribe((model) => {
       this.form.patchValue({
         name: model.name,
+        color: model.color,
       });
     });
   }
@@ -62,6 +64,7 @@ export class EditModelFormComponent implements OnInit {
         updateModelRequest: {
           id: this.modelId,
           name: this.form.value.name,
+          color: this.form.value.color,
         },
       })
       .subscribe({

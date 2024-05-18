@@ -17,6 +17,7 @@ export interface CreateModelResponse {
     brandId?: number;
     fuelId?: number;
     transmissionId?: number;
+    color?: string;
     createdDate?: string;
 }
 

@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
+  CreditCardControllerService,
   GetAllCreditCardResponse,
   GetAllModelResponse,
-  GetAllRentalResponse,
-  RentalControllerService,
 } from '../../../../shared/services/api';
 
 @Component({
@@ -20,15 +19,21 @@ export class PaymentComponent implements OnInit {
 
   creditCards: GetAllCreditCardResponse[] = [];
   models: GetAllModelResponse[] = [];
+
+  constructor(
+    private creditCardServices: CreditCardControllerService,
+    private change: ChangeDetectorRef
+  ) {}
   ngOnInit(): void {
-    if (this.creditCard) {
-      this.getCreditCardNumber(this.creditCard);
-      console.log(this.creditCard.cardNumber);
-    }
+    this.getAllCreditCards(this.creditCard!);
+    console.log(this.creditCard);
+    this.change.markForCheck();
   }
 
-  getCreditCardNumber(creditCard: GetAllCreditCardResponse) {
-    this.models.find((model) => model.id === creditCard.id);
-    console.log(creditCard.cardNumber);
+  getAllCreditCards(creditCard: GetAllCreditCardResponse): void {
+    this.creditCardServices.getAllCreditCards().subscribe((creditCards) => {
+      this.creditCards = creditCards;
+      this.change.markForCheck();
+    });
   }
 }

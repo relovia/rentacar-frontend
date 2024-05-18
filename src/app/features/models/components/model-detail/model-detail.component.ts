@@ -8,10 +8,6 @@ import {
   GetAllCarResponse,
   GetAllModelResponse,
   GetAllTransmissionResponse,
-  GetBrandByIdRequestParams,
-  GetCarByIdRequestParams,
-  GetModelByIdRequestParams,
-  GetTransmissionByIdRequestParams,
   ModelControllerService,
   TransmissionControllerService,
 } from '../../../../shared/services/api';

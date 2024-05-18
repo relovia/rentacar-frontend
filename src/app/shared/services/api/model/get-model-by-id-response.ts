@@ -17,6 +17,7 @@ export interface GetModelByIdResponse {
     brandId?: number;
     fuelId?: number;
     transmissionId?: number;
+    color?: string;
     message?: string;
     createdDate?: string;
 }

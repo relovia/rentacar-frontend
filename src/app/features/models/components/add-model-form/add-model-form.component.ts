@@ -47,6 +47,7 @@ export class AddModelFormComponent implements OnInit {
       brandId: ['', [Validators.required]],
       fuelId: ['', [Validators.required]],
       transmissionId: ['', [Validators.required]],
+      color: ['', [Validators.required]],
     });
   }
 
@@ -57,6 +58,7 @@ export class AddModelFormComponent implements OnInit {
         brandId: this.form.value.brandId,
         fuelId: this.form.value.fuelId,
         transmissionId: this.form.value.transmissionId,
+        color: this.form.value.color,
       },
     };
 

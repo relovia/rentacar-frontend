@@ -5,11 +5,15 @@ import { RouterModule } from '@angular/router';
 import { PaymentComponent } from '../../../features/payments/components/payment/payment.component';
 
 @Component({
-  selector: 'app-management-rentals-page',
+  selector: 'app-management-payment-page',
   standalone: true,
   imports: [CommonModule, ButtonComponent, RouterModule, PaymentComponent],
-  templateUrl: './management-rentals-page.component.html',
-  styleUrl: './management-rentals-page.component.scss',
+  templateUrl: './management-payment-page.component.html',
+  styleUrl: './management-payment-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ManagementRentalsPageComponent {}
+export class ManagementPaymentPageComponent {
+  creditCard: any;
+
+  constructor() {}
+}
