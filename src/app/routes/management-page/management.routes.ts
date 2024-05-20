@@ -15,6 +15,9 @@ import { ManagementCreateTransmissionPageComponent } from './management-transmis
 import { ManagementEditTransmissionPageComponent } from './management-transmissions-page/management-edit-transmission-page/management-edit-transmission-page.component';
 import { ManagementModelDetailPageComponent } from './management-models-page/management-model-detail-page/management-model-detail-page.component';
 import { ManagementPaymentPageComponent } from './management-payment-page/management-payment-page.component';
+import { ManagementFuelsPageComponent } from './management-fuels-page/management-fuels-page.component';
+import { ManagementCreateFuelPageComponent } from './management-fuels-page/management-create-fuel-page/management-create-fuel-page.component';
+import { ManagementEditFuelPageComponent } from './management-fuels-page/management-edit-fuel-page/management-edit-fuel-page.component';
 
 export const managementRoutes: Routes = [
   {
@@ -91,6 +94,20 @@ export const managementRoutes: Routes = [
       {
         path: 'transmissions/edit/:transmissionId',
         component: ManagementEditTransmissionPageComponent,
+      },
+
+      // Fuels
+      {
+        path: 'fuels',
+        component: ManagementFuelsPageComponent,
+      },
+      {
+        path: 'fuels/create',
+        component: ManagementCreateFuelPageComponent,
+      },
+      {
+        path: 'fuels/edit/:fuelId',
+        component: ManagementEditFuelPageComponent,
       },
     ],
   },

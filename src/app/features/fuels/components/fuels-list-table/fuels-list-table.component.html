@@ -1,0 +1,41 @@
+<table appTable class="table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (fuel of fuels; track $index) {
+    <tr>
+      <th scope="row">{{ fuel.id }}</th>
+      <td>{{ fuel.name }}</td>
+      <td></td>
+      <td>
+        <div class="d-flex justify-content-end">
+          <app-button
+            [routerLink]="['/management/fuels/edit', fuel.id]"
+            variant="warning"
+            >Edit</app-button
+          >
+          <app-button
+            class="ms-3"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteConfirmationModal"
+            (click)="deleteFuel(fuel.id!)"
+            variant="danger"
+            >Delete</app-button
+          >
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<app-confirmation-pop-up
+  *ngIf="showDeleteConfirmation"
+  (confirm)="onDeleteConfirm()"
+  (cancel)="onDeleteCancel()"
+></app-confirmation-pop-up>
