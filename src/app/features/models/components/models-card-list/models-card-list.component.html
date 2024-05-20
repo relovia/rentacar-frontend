@@ -1,8 +1,10 @@
 <div class="row">
   @for (model of filteredModels; track $index) {
   <app-card
+    [imageSrc]="modelImageUrls[model.id!]"
+    [imgAlt]="model.name!"
     [title]="model.name!"
-    [text]="getModelCardText(model)!"
+    [text]="getModelCardText(model).text"
     buttonLabel="Rent"
     class="col-12 col-md-5 p-3"
   ></app-card>

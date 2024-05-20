@@ -1,26 +1,28 @@
 <app-home-layout>
-  <div
-    class="d-flex flex-column justify-content-center align-items-center min-vh-100"
-  >
-    <h1>Welcome to our rental gallery!</h1>
-    <app-button [routerLink]="['/management/models']"> View Models </app-button>
+  <div class="home-image d-flex justify-content-center align-items-center">
+    <div class="text-center text-white">
+      <h1>Welcome to our rental gallery!</h1>
+      <app-button [routerLink]="['/management/models']">
+        View Models
+      </app-button>
+    </div>
   </div>
 
-  <div class="container">
+  <div class="my-5 model-image">
     <div class="row">
-      <div class="col-4 d-flex justify-content-between">
+      <div class="col-md-4 mb-4 mx-2">
         <app-brands-list-menu
           [initialSelectedBrandId]="selectedBrandId"
           (selectBrand)="onSelectBrand($event)"
         ></app-brands-list-menu>
-
+      </div>
+      <div class="col-md-4 mb-4">
         <app-transmissions-list-menu
           [initialSelectedTransmissionId]="selectedTransmissionId"
           (selectTransmission)="onSelectTransmission($event)"
         ></app-transmissions-list-menu>
       </div>
-
-      <div class="col-8">
+      <div class="col-md-12 mx-2">
         <app-models-card-list
           [brandId]="selectedBrandId"
           [transmissionId]="selectedTransmissionId"

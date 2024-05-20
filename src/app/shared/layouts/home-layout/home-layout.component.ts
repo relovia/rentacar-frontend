@@ -4,7 +4,7 @@ import {
   NavItem,
   NavTitle,
 } from '../../components/navbar/navbar.component';
-import { FooterComponent } from '../../components/footer.component';
+import { FooterComponent } from '../../components/footer/footer/footer.component';
 
 @Component({
   selector: 'app-home-layout',
@@ -27,5 +27,6 @@ export class HomeLayoutComponent {
     { label: 'Cars Management', link: '/management/cars' },
     { label: 'Models Management', link: '/management/models' },
     { label: 'Transmissions Management', link: '/management/transmissions' },
+    { label: 'Fuels Management', link: '/management/fuels' },
   ];
 }

@@ -2,7 +2,20 @@
   display: block;
 }
 
-.bg-image {
-  background-image: url("https://images.unsplash.com/photo-1565043666747-69f6646db940?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  z-index: -1;
+.home-image {
+  background-image: url("/assets/images/homepage/home-page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.model-image {
+  background-image: url("/assets/images/homepage/model-page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem 0;
 }

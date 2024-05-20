@@ -93,7 +93,10 @@ export class ModelsCardListComponent
       });
   }
 
-  getModelCardText(model: GetAllModelResponse): string {
+  getModelCardText(model: GetAllModelResponse): {
+    text: string;
+    imageUrl: string;
+  } {
     const brandName = this.brands.find(
       (brand) => brand.id === model.brandId
     )?.name;
@@ -107,8 +110,21 @@ export class ModelsCardListComponent
     )?.name;
     this.transmissions.sort((a, b) => a.id! - b.id!);
 
-    return `Brand: ${brandName || 'Unknown'} | Fuel: ${
+    const text = `Brand: ${brandName || 'Unknown'} | Fuel: ${
       fuelName || 'Unknown'
     } | Transmission: ${transmissionName || 'Unknown'}`;
+    const imageUrl = this.modelImageUrls[model.id!];
+
+    return { text, imageUrl };
   }
+
+  modelImageUrls: {
+    [id: number]: string;
+  } = {
+    1: '../assets/images/car-models/audi-a3-sportback-2024.jpg',
+    6: '../assets/images/car-models/honda-civic-type-r-2024.jpg',
+    7: '../assets/images/car-models/ferrari-296-gts-2024.jpg',
+    8: '../assets/images/car-models/alfa-romeo-giulia-quadrifoglio-2020.jpg',
+    9: '../assets/images/car-models/bmw-m3-2022.jpg',
+  };
 }
