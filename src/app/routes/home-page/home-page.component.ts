@@ -17,7 +17,6 @@ import { TransmissionsListMenuComponent } from '../../features/transmissions/com
   imports: [
     CommonModule,
     HomeLayoutComponent,
-    ButtonComponent,
     BrandsListMenuComponent,
     RouterModule,
     ModelsCardListComponent,

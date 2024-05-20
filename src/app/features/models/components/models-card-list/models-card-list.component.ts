@@ -110,9 +110,11 @@ export class ModelsCardListComponent
     )?.name;
     this.transmissions.sort((a, b) => a.id! - b.id!);
 
-    const text = `Brand: ${brandName || 'Unknown'} | Fuel: ${
-      fuelName || 'Unknown'
-    } | Transmission: ${transmissionName || 'Unknown'}`;
+    const text = `
+                  Brand: ${brandName || 'Unknown'}
+                 | Fuel: ${fuelName || 'Unknown'} 
+                 | Transmission: ${transmissionName || 'Unknown'}
+                 | Color: ${model.color}`;
     const imageUrl = this.modelImageUrls[model.id!];
 
     return { text, imageUrl };
@@ -126,5 +128,8 @@ export class ModelsCardListComponent
     7: '../assets/images/car-models/ferrari-296-gts-2024.jpg',
     8: '../assets/images/car-models/alfa-romeo-giulia-quadrifoglio-2020.jpg',
     9: '../assets/images/car-models/bmw-m3-2022.jpg',
+    10: '../assets/images/car-models/hyundai-elantra-2017.jpg',
+    11: '../assets/images/car-models/fiat-egea-2015.jpg',
+    12: '../assets/images/car-models/ford-c-max-2017.jpg',
   };
 }
