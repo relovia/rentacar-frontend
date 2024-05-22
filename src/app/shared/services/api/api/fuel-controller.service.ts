@@ -31,7 +31,7 @@ import { UpdateFuelRequest } from '../model/update-fuel-request';
 // @ts-ignore
 import { UpdateFuelResponse } from '../model/update-fuel-response';
 // @ts-ignore
-import { UpdateTransmission400Response } from '../model/update-transmission400-response';
+import { UpdateUser400Response } from '../model/update-user400-response';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';

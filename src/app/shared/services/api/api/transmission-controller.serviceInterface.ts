@@ -17,9 +17,9 @@ import { CreateTransmissionRequest } from '../model/models';
 import { CreateTransmissionResponse } from '../model/models';
 import { GetAllTransmissionResponse } from '../model/models';
 import { GetTransmissionByIdResponse } from '../model/models';
-import { UpdateTransmission400Response } from '../model/models';
 import { UpdateTransmissionRequest } from '../model/models';
 import { UpdateTransmissionResponse } from '../model/models';
+import { UpdateUser400Response } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';

@@ -19,7 +19,7 @@ import { GetAllFuelResponse } from '../model/models';
 import { GetFuelByIdResponse } from '../model/models';
 import { UpdateFuelRequest } from '../model/models';
 import { UpdateFuelResponse } from '../model/models';
-import { UpdateTransmission400Response } from '../model/models';
+import { UpdateUser400Response } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';

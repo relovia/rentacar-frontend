@@ -19,7 +19,7 @@ import { GetAllBrandResponse } from '../model/models';
 import { GetBrandByIdResponse } from '../model/models';
 import { UpdateBrandRequest } from '../model/models';
 import { UpdateBrandResponse } from '../model/models';
-import { UpdateTransmission400Response } from '../model/models';
+import { UpdateUser400Response } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';

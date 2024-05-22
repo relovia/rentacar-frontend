@@ -11,9 +11,20 @@
  */
 
 
-export interface UpdateModelRequest { 
-    id?: number;
-    name: string;
-    color: string;
+export interface CreateUserRequest { 
+    firstName: string;
+    lastName: string;
+    companyName: string;
+    roles: string;
+    username: string;
+    password: string;
+    email: string;
+    phoneNumber: string;
+    identityNumber: string;
+    address: string;
+    city: string;
+    state: string;
+    country: string;
+    zipCode: string;
 }
 

@@ -31,7 +31,7 @@ import { UpdateCreditCardRequest } from '../model/update-credit-card-request';
 // @ts-ignore
 import { UpdateCreditCardResponse } from '../model/update-credit-card-response';
 // @ts-ignore
-import { UpdateTransmission400Response } from '../model/update-transmission400-response';
+import { UpdateUser400Response } from '../model/update-user400-response';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';

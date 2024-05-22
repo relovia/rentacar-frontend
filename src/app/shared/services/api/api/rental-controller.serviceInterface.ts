@@ -19,7 +19,7 @@ import { GetAllRentalResponse } from '../model/models';
 import { GetRentalByIdResponse } from '../model/models';
 import { UpdateRentalRequest } from '../model/models';
 import { UpdateRentalResponse } from '../model/models';
-import { UpdateTransmission400Response } from '../model/models';
+import { UpdateUser400Response } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';

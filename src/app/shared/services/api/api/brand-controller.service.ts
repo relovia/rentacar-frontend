@@ -31,7 +31,7 @@ import { UpdateBrandRequest } from '../model/update-brand-request';
 // @ts-ignore
 import { UpdateBrandResponse } from '../model/update-brand-response';
 // @ts-ignore
-import { UpdateTransmission400Response } from '../model/update-transmission400-response';
+import { UpdateUser400Response } from '../model/update-user400-response';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';

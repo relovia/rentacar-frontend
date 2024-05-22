@@ -27,11 +27,11 @@ import { GetAllTransmissionResponse } from '../model/get-all-transmission-respon
 // @ts-ignore
 import { GetTransmissionByIdResponse } from '../model/get-transmission-by-id-response';
 // @ts-ignore
-import { UpdateTransmission400Response } from '../model/update-transmission400-response';
-// @ts-ignore
 import { UpdateTransmissionRequest } from '../model/update-transmission-request';
 // @ts-ignore
 import { UpdateTransmissionResponse } from '../model/update-transmission-response';
+// @ts-ignore
+import { UpdateUser400Response } from '../model/update-user400-response';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';

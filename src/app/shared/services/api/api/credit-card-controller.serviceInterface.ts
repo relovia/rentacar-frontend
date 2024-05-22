@@ -19,7 +19,7 @@ import { GetAllCreditCardResponse } from '../model/models';
 import { GetCreditCardByIdResponse } from '../model/models';
 import { UpdateCreditCardRequest } from '../model/models';
 import { UpdateCreditCardResponse } from '../model/models';
-import { UpdateTransmission400Response } from '../model/models';
+import { UpdateUser400Response } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';

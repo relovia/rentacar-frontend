@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CustomerService } from '../../services/customer.service';
-import { CustomerListItemDto } from '../../models/customer-list-item-dto';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeLayoutComponent } from '../../../../shared/layouts/home-layout/home-layout.component';
 import { TableDirective } from '../../../../shared/directives/table.directive';
+import {
+  GetAllUserResponse,
+  UserControllerService,
+} from '../../../../shared/services/api';
 
 @Component({
   selector: 'app-customer-list',
@@ -14,13 +16,21 @@ import { TableDirective } from '../../../../shared/directives/table.directive';
   imports: [CommonModule, RouterModule, HomeLayoutComponent, TableDirective],
 })
 export class CustomerListComponent implements OnInit {
-  customers: CustomerListItemDto[] = [];
+  customers: GetAllUserResponse[] = [];
 
-  constructor(private customerService: CustomerService) {}
+  constructor(
+    private userServices: UserControllerService,
+    private change: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.customerService.getAllCustomers().subscribe((customers) => {
-      this.customers = customers;
+    this.getAllCustomers();
+  }
+
+  getAllCustomers() {
+    this.userServices.getAllUsers().subscribe((users) => {
+      this.customers = users;
+      this.change.markForCheck();
     });
   }
 }

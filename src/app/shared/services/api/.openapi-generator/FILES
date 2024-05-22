@@ -16,6 +16,8 @@ api/rental-controller.service.ts
 api/rental-controller.serviceInterface.ts
 api/transmission-controller.service.ts
 api/transmission-controller.serviceInterface.ts
+api/user-controller.service.ts
+api/user-controller.serviceInterface.ts
 configuration.ts
 encoder.ts
 git_push.sh
@@ -35,6 +37,8 @@ model/create-rental-request.ts
 model/create-rental-response.ts
 model/create-transmission-request.ts
 model/create-transmission-response.ts
+model/create-user-request.ts
+model/create-user-response.ts
 model/get-all-brand-response.ts
 model/get-all-car-response.ts
 model/get-all-credit-card-response.ts
@@ -42,6 +46,7 @@ model/get-all-fuel-response.ts
 model/get-all-model-response.ts
 model/get-all-rental-response.ts
 model/get-all-transmission-response.ts
+model/get-all-user-response.ts
 model/get-brand-by-id-response.ts
 model/get-car-by-id-response.ts
 model/get-credit-card-by-id-response.ts
@@ -49,6 +54,7 @@ model/get-fuel-by-id-response.ts
 model/get-model-by-id-response.ts
 model/get-rental-by-id-response.ts
 model/get-transmission-by-id-response.ts
+model/get-user-by-id-response.ts
 model/internal-server-error-problem-details.ts
 model/models.ts
 model/update-brand-request.ts
@@ -65,7 +71,9 @@ model/update-rental-request.ts
 model/update-rental-response.ts
 model/update-transmission-request.ts
 model/update-transmission-response.ts
-model/update-transmission400-response.ts
+model/update-user-request.ts
+model/update-user-response.ts
+model/update-user400-response.ts
 model/validation-problem-details.ts
 param.ts
 variables.ts

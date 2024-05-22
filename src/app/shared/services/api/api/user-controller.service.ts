@@ -19,37 +19,37 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { CreateCarRequest } from '../model/create-car-request';
+import { CreateUserRequest } from '../model/create-user-request';
 // @ts-ignore
-import { CreateCarResponse } from '../model/create-car-response';
+import { CreateUserResponse } from '../model/create-user-response';
 // @ts-ignore
-import { GetAllCarResponse } from '../model/get-all-car-response';
+import { GetAllUserResponse } from '../model/get-all-user-response';
 // @ts-ignore
-import { GetCarByIdResponse } from '../model/get-car-by-id-response';
-// @ts-ignore
-import { UpdateCarRequest } from '../model/update-car-request';
-// @ts-ignore
-import { UpdateCarResponse } from '../model/update-car-response';
+import { GetUserByIdResponse } from '../model/get-user-by-id-response';
 // @ts-ignore
 import { UpdateUser400Response } from '../model/update-user400-response';
+// @ts-ignore
+import { UpdateUserRequest } from '../model/update-user-request';
+// @ts-ignore
+import { UpdateUserResponse } from '../model/update-user-response';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 import {
-    CarControllerServiceInterface,
-    CreateCarRequestParams,
-    DeleteCarRequestParams,
-    GetCarByIdRequestParams,
-    UpdateCarRequestParams
-} from './car-controller.serviceInterface';
+    UserControllerServiceInterface,
+    CreateUserRequestParams,
+    DeleteUserRequestParams,
+    GetUserByIdRequestParams,
+    UpdateUserRequestParams
+} from './user-controller.serviceInterface';
 
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CarControllerService implements CarControllerServiceInterface {
+export class UserControllerService implements UserControllerServiceInterface {
 
     protected basePath = 'http://localhost:8080';
     public defaultHeaders = new HttpHeaders();
@@ -115,13 +115,13 @@ export class CarControllerService implements CarControllerServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createCar(requestParameters: CreateCarRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<CreateCarResponse>;
-    public createCar(requestParameters: CreateCarRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreateCarResponse>>;
-    public createCar(requestParameters: CreateCarRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreateCarResponse>>;
-    public createCar(requestParameters: CreateCarRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        const createCarRequest = requestParameters.createCarRequest;
-        if (createCarRequest === null || createCarRequest === undefined) {
-            throw new Error('Required parameter createCarRequest was null or undefined when calling createCar.');
+    public createUser(requestParameters: CreateUserRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<CreateUserResponse>;
+    public createUser(requestParameters: CreateUserRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<CreateUserResponse>>;
+    public createUser(requestParameters: CreateUserRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<CreateUserResponse>>;
+    public createUser(requestParameters: CreateUserRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        const createUserRequest = requestParameters.createUserRequest;
+        if (createUserRequest === null || createUserRequest === undefined) {
+            throw new Error('Required parameter createUserRequest was null or undefined when calling createUser.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -170,11 +170,11 @@ export class CarControllerService implements CarControllerServiceInterface {
             }
         }
 
-        let localVarPath = `/api/cars/add`;
-        return this.httpClient.request<CreateCarResponse>('post', `${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/api/users/add`;
+        return this.httpClient.request<CreateUserResponse>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: createCarRequest,
+                body: createUserRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -190,13 +190,13 @@ export class CarControllerService implements CarControllerServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteCar(requestParameters: DeleteCarRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any>;
-    public deleteCar(requestParameters: DeleteCarRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
-    public deleteCar(requestParameters: DeleteCarRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
-    public deleteCar(requestParameters: DeleteCarRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public deleteUser(requestParameters: DeleteUserRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public deleteUser(requestParameters: DeleteUserRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public deleteUser(requestParameters: DeleteUserRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public deleteUser(requestParameters: DeleteUserRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         const id = requestParameters.id;
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling deleteCar.');
+            throw new Error('Required parameter id was null or undefined when calling deleteUser.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -235,7 +235,7 @@ export class CarControllerService implements CarControllerServiceInterface {
             }
         }
 
-        let localVarPath = `/api/cars/delete/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+        let localVarPath = `/api/users/delete/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
         return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -253,10 +253,10 @@ export class CarControllerService implements CarControllerServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAllCars(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<GetAllCarResponse>>;
-    public getAllCars(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<GetAllCarResponse>>>;
-    public getAllCars(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<GetAllCarResponse>>>;
-    public getAllCars(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getAllUsers(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<GetAllUserResponse>>;
+    public getAllUsers(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<GetAllUserResponse>>>;
+    public getAllUsers(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<GetAllUserResponse>>>;
+    public getAllUsers(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -295,8 +295,8 @@ export class CarControllerService implements CarControllerServiceInterface {
             }
         }
 
-        let localVarPath = `/api/cars/get/all`;
-        return this.httpClient.request<Array<GetAllCarResponse>>('get', `${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/api/users/get/all`;
+        return this.httpClient.request<Array<GetAllUserResponse>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -314,13 +314,13 @@ export class CarControllerService implements CarControllerServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getCarById(requestParameters: GetCarByIdRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetCarByIdResponse>;
-    public getCarById(requestParameters: GetCarByIdRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetCarByIdResponse>>;
-    public getCarById(requestParameters: GetCarByIdRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetCarByIdResponse>>;
-    public getCarById(requestParameters: GetCarByIdRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getUserById(requestParameters: GetUserByIdRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetUserByIdResponse>;
+    public getUserById(requestParameters: GetUserByIdRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetUserByIdResponse>>;
+    public getUserById(requestParameters: GetUserByIdRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetUserByIdResponse>>;
+    public getUserById(requestParameters: GetUserByIdRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         const id = requestParameters.id;
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling getCarById.');
+            throw new Error('Required parameter id was null or undefined when calling getUserById.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -360,8 +360,8 @@ export class CarControllerService implements CarControllerServiceInterface {
             }
         }
 
-        let localVarPath = `/api/cars/get/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
-        return this.httpClient.request<GetCarByIdResponse>('get', `${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/api/users/get/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
+        return this.httpClient.request<GetUserByIdResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -379,13 +379,13 @@ export class CarControllerService implements CarControllerServiceInterface {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public updateCar(requestParameters: UpdateCarRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<UpdateCarResponse>;
-    public updateCar(requestParameters: UpdateCarRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateCarResponse>>;
-    public updateCar(requestParameters: UpdateCarRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateCarResponse>>;
-    public updateCar(requestParameters: UpdateCarRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
-        const updateCarRequest = requestParameters.updateCarRequest;
-        if (updateCarRequest === null || updateCarRequest === undefined) {
-            throw new Error('Required parameter updateCarRequest was null or undefined when calling updateCar.');
+    public updateUser(requestParameters: UpdateUserRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<UpdateUserResponse>;
+    public updateUser(requestParameters: UpdateUserRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<UpdateUserResponse>>;
+    public updateUser(requestParameters: UpdateUserRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<UpdateUserResponse>>;
+    public updateUser(requestParameters: UpdateUserRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        const updateUserRequest = requestParameters.updateUserRequest;
+        if (updateUserRequest === null || updateUserRequest === undefined) {
+            throw new Error('Required parameter updateUserRequest was null or undefined when calling updateUser.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -434,11 +434,11 @@ export class CarControllerService implements CarControllerServiceInterface {
             }
         }
 
-        let localVarPath = `/api/cars/update`;
-        return this.httpClient.request<UpdateCarResponse>('put', `${this.configuration.basePath}${localVarPath}`,
+        let localVarPath = `/api/users/update`;
+        return this.httpClient.request<UpdateUserResponse>('put', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: updateCarRequest,
+                body: updateUserRequest,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

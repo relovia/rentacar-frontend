@@ -19,7 +19,7 @@ import { GetAllCarResponse } from '../model/models';
 import { GetCarByIdResponse } from '../model/models';
 import { UpdateCarRequest } from '../model/models';
 import { UpdateCarResponse } from '../model/models';
-import { UpdateTransmission400Response } from '../model/models';
+import { UpdateUser400Response } from '../model/models';
 
 
 import { Configuration }                                     from '../configuration';

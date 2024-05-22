@@ -11,9 +11,21 @@
  */
 
 
-export interface UpdateModelRequest { 
+export interface GetAllUserResponse { 
     id?: number;
-    name: string;
-    color: string;
+    firstName?: string;
+    lastName?: string;
+    companyName?: string;
+    roles?: string;
+    username?: string;
+    password?: string;
+    email?: string;
+    phoneNumber?: string;
+    identityNumber?: string;
+    address?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    zipCode?: string;
 }
 
