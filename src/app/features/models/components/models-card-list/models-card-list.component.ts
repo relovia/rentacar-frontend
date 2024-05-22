@@ -131,5 +131,17 @@ export class ModelsCardListComponent
     10: '../assets/images/car-models/hyundai-elantra-2017.jpg',
     11: '../assets/images/car-models/fiat-egea-2015.jpg',
     12: '../assets/images/car-models/ford-c-max-2017.jpg',
+    13: '../assets/images/car-models/jaguar-e-pace-2023.jpg',
+    14: '../assets/images/car-models/toyota-corolla-e140-2010.jpg',
+    15: '../assets/images/car-models/jeep-renegade-2024.jpg',
+    16: '../assets/images/car-models/mazda-cx-9-2023.jpg',
+    17: '../assets/images/car-models/mitsubishi-lancer-evolution-ix-2006.jpg',
+    18: '../assets/images/car-models/porsche-718-cayman-2024.jpg',
+    19: '../assets/images/car-models/tesla-model-y-2024.jpg',
+    20: '../assets/images/car-models/togg-t10x-2024.jpg',
+    21: '../assets/images/car-models/volkswagen-tiguan-2024.jpg',
+    22: '../assets/images/car-models/volvo-xc90-2024.jpg',
+    23: '../assets/images/car-models/skoda-superb-2024.jpg',
+    24: '../assets/images/car-models/opel-corsa-2024.jpg',
   };
 }
