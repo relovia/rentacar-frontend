@@ -6,6 +6,5 @@ export const homeRoutes: Routes = [
     path: '', // localhost:4200
     pathMatch: 'full',
     component: HomePageComponent,
-    // İlk karşılaştığı <router-outlet>'e HomePageComponent'i yerleştirir.
   },
 ];

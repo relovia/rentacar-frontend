@@ -7,8 +7,6 @@
 
 <!-- Reactive Forms -->
 <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
-  <!-- <small *ngIf="errorMessage"> {{errorMessage}} </small> -->
-  <!-- Angular 17: -->
   @if (formMessage) {
   <small>{{ formMessage }}</small>
   }

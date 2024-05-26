@@ -1,28 +1,31 @@
-import type { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router, type CanActivateFn } from '@angular/router';
+import { TokenService } from '../services/token/token.service';
+import { AuthService } from '../services/auth/auth.service';
 
-// > Angular 17
 export const authGuard: CanActivateFn = (route, state) => {
-  // const authService = inject(AuthService);
-  // const toastService = inject(ToastService);
+  const tokenService = inject(TokenService);
+  const authService = inject(AuthService);
+  const router = inject(Router);
 
-  if (!localStorage.getItem('token')) return false;
+  const token = tokenService.token;
+  const role = authService.getRole();
 
-  const token = localStorage.getItem('token');
-  // if (token.expire < Date.now())
-  //   return false;
+  if (!token || role !== 'admin') {
+    router.navigate(['/login']);
+    return false;
+  }
 
-  const requiredRoles = route.data['requiredRoles'];
-  // if (!token.roles.some((role) => requiredRoles.includes(role))) {
-  //   // toastService.show('You do not have enough permissions to access this page.', { type: 'error' });
-  //   return false;
-  // }
+  const requiredRoles = route.data['requiredRoles'] as string[];
+
+  if (
+    requiredRoles &&
+    requiredRoles.length > 0 &&
+    !requiredRoles.includes(role!)
+  ) {
+    router.navigate(['/unauthorized']);
+    return false;
+  }
 
   return true;
 };
-
-// < Angular 17
-// class AuthGuard {
-//   canActive( route: ActivatedRouteSnapshot,
-//     state: RouterStateSnapshot){
-//   }
-// }

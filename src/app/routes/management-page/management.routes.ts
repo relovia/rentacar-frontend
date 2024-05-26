@@ -24,17 +24,14 @@ export const managementRoutes: Routes = [
     path: 'management',
     canActivate: [authGuard], // Angular Guard yapıları ilgili route'a giriş yapmadan önce çalışacak olan yapılar
     data: {
-      // Route'a özel veri tutma
       requiredRoles: ['admin'],
     },
     component: ManagementPageComponent,
-    // İlk karşılaştığı <router-outlet>'e ManagementPageComponent'i yerleştirir.
     children: [
       // Brands
       {
         path: 'brands',
         component: ManagementBrandsPageComponent,
-        // İkinci karşılaştığı <router-outlet>'e ManagementBrandsPageComponent'i yerleştirir.
       },
       {
         path: 'brands/create',
@@ -42,7 +39,6 @@ export const managementRoutes: Routes = [
       },
       {
         path: 'brands/edit/:brandId',
-        // :brandId , brandId isminde bir route parametresi tanımlar
         component: ManagementEditBrandPageComponent,
       },
 
