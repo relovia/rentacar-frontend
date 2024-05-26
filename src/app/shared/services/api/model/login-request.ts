@@ -11,14 +11,8 @@
  */
 
 
-export interface CreateUserRequest { 
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    identityNumber: string;
-    companyName: string;
-    phoneNumber: string;
-    city: string;
+export interface LoginRequest { 
+    email?: string;
+    password?: string;
 }
 

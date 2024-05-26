@@ -15,17 +15,11 @@ export interface UpdateUserRequest {
     id?: number;
     firstName: string;
     lastName: string;
-    companyName: string;
-    roles: string;
-    username: string;
-    password: string;
     email: string;
-    phoneNumber: string;
+    password: string;
     identityNumber: string;
-    address: string;
+    companyName: string;
+    phoneNumber: string;
     city: string;
-    state: string;
-    country: string;
-    zipCode: string;
 }
 

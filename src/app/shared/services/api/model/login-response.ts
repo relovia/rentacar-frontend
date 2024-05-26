@@ -11,25 +11,12 @@
  */
 
 
-export interface CreateUserResponse { 
+export interface LoginResponse { 
     id?: number;
     firstName?: string;
     lastName?: string;
     email?: string;
-    password?: string;
-    identityNumber?: string;
-    companyName?: string;
-    role?: CreateUserResponse.RoleEnum;
-    phoneNumber?: string;
-    city?: string;
-    createdDate?: string;
+    role?: string;
+    token?: string;
 }
-export namespace CreateUserResponse {
-    export type RoleEnum = 'USER' | 'ADMIN';
-    export const RoleEnum = {
-        User: 'USER' as RoleEnum,
-        Admin: 'ADMIN' as RoleEnum
-    };
-}
-
 

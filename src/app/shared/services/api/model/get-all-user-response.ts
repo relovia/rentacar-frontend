@@ -15,17 +15,20 @@ export interface GetAllUserResponse {
     id?: number;
     firstName?: string;
     lastName?: string;
-    companyName?: string;
-    roles?: string;
-    username?: string;
-    password?: string;
     email?: string;
-    phoneNumber?: string;
+    password?: string;
     identityNumber?: string;
-    address?: string;
+    companyName?: string;
+    role?: GetAllUserResponse.RoleEnum;
+    phoneNumber?: string;
     city?: string;
-    state?: string;
-    country?: string;
-    zipCode?: string;
 }
+export namespace GetAllUserResponse {
+    export type RoleEnum = 'USER' | 'ADMIN';
+    export const RoleEnum = {
+        User: 'USER' as RoleEnum,
+        Admin: 'ADMIN' as RoleEnum
+    };
+}
+
 

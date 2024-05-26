@@ -1,4 +1,4 @@
-<div class="card" style="width: 18rem">
+<div class="card" style="width: 18rem; height: 100%">
   <img
     [src]="imageSrc"
     [alt]="imgAlt"
@@ -7,13 +7,21 @@
     height="200"
   />
   <div class="card-body">
-    <h5 class="card-title">{{ title }}</h5>
-    <p class="card-text">
-      {{ text }}
-    </p>
+    <div class="row">
+      <div class="col-6">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">
+          {{ text }}
+        </p>
+      </div>
+      <div class="col-6">
+        <p class="card-text">Buraya araç özellikleri eklenecek.</p>
+      </div>
+    </div>
+
     <button
       type="button"
-      class="btn btn-primary"
+      class="btn btn-primary w-100"
       (click)="buttonClick.emit()"
       [routerLink]="['management/models/rent']"
     >

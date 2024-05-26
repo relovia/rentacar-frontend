@@ -2,6 +2,8 @@
 README.md
 api.module.ts
 api/api.ts
+api/authentication-controller.service.ts
+api/authentication-controller.serviceInterface.ts
 api/brand-controller.service.ts
 api/brand-controller.serviceInterface.ts
 api/car-controller.service.ts
@@ -56,7 +58,11 @@ model/get-rental-by-id-response.ts
 model/get-transmission-by-id-response.ts
 model/get-user-by-id-response.ts
 model/internal-server-error-problem-details.ts
+model/login-request.ts
+model/login-response.ts
 model/models.ts
+model/register-request.ts
+model/register-response.ts
 model/update-brand-request.ts
 model/update-brand-response.ts
 model/update-car-request.ts
