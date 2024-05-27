@@ -27,9 +27,9 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authServices: AuthenticationControllerService,
-    private tokenService: TokenService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class LoginPageComponent implements OnInit {
 
   createForm() {
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
   }
@@ -51,15 +51,18 @@ export class LoginPageComponent implements OnInit {
       },
     };
 
+    console.log('Request: ', request);
+
     this.authServices.login(request).subscribe({
       // Next: Observable'dan gelen veriyi yakaladığımız fonksiyon
       next: (response) => {
-        this.tokenService.token = response.token as string;
+        this.tokenService.setToken(response.token as string);
         console.log(response);
       },
       // Error: Observable'dan gelen hatayı yakaladığımız fonksiyon
       error: (error) => {
-        this.formMessage = error.errorMessage;
+        console.log('Login error: ', error);
+        this.formMessage = error.errorMessage || 'Login failed';
         this.change.markForCheck();
       },
       // Complete: Observable'dan gelen veri akışının tamamladığını bildiren fonksiyon, eğer complete çalışırsa observable'dan gelen veri akışı sona erer.
@@ -69,7 +72,7 @@ export class LoginPageComponent implements OnInit {
         this.change.markForCheck();
 
         setTimeout(() => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         }, 2000);
       },
     });

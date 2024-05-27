@@ -24,7 +24,7 @@ export const managementRoutes: Routes = [
     path: 'management',
     canActivate: [authGuard], // Angular Guard yapıları ilgili route'a giriş yapmadan önce çalışacak olan yapılar
     data: {
-      requiredRoles: ['admin'],
+      requiredRoles: ['USER', 'ADMIN'],
     },
     component: ManagementPageComponent,
     children: [
@@ -36,10 +36,16 @@ export const managementRoutes: Routes = [
       {
         path: 'brands/create',
         component: ManagementCreateBrandPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
       {
         path: 'brands/edit/:brandId',
         component: ManagementEditBrandPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
 
       // Models
@@ -50,10 +56,16 @@ export const managementRoutes: Routes = [
       {
         path: 'models/create',
         component: ManagementCreateModelPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
       {
         path: 'models/edit/:modelId',
         component: ManagementEditModelPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
       {
         path: 'models/detail/:modelId',
@@ -72,10 +84,16 @@ export const managementRoutes: Routes = [
       {
         path: 'cars/create',
         component: ManagementCreateCarPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
       {
         path: 'cars/edit/:carId',
         component: ManagementEditCarPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
 
       // Transmissions
@@ -86,10 +104,16 @@ export const managementRoutes: Routes = [
       {
         path: 'transmissions/create',
         component: ManagementCreateTransmissionPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
       {
         path: 'transmissions/edit/:transmissionId',
         component: ManagementEditTransmissionPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
 
       // Fuels
@@ -100,10 +124,16 @@ export const managementRoutes: Routes = [
       {
         path: 'fuels/create',
         component: ManagementCreateFuelPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
       {
         path: 'fuels/edit/:fuelId',
         component: ManagementEditFuelPageComponent,
+        data: {
+          requiredRoles: ['ADMIN'],
+        },
       },
     ],
   },

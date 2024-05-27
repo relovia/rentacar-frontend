@@ -18,7 +18,7 @@ export class AuthService {
 
   // Check if the user is logged in
   isLoggedIn(): boolean {
-    const token = this.tokenServices.token;
+    const token = this.tokenServices.getToken();
     return token !== null && !this.isTokenExpired(token);
   }
 
@@ -39,7 +39,7 @@ export class AuthService {
 
     return this.authControllerServices.login({ loginRequest }).pipe(
       tap((response) => {
-        this.tokenServices.token = response.token!;
+        this.tokenServices.setToken(response.token!);
       })
     );
   }
@@ -51,10 +51,26 @@ export class AuthService {
 
   // Get the role of the user from the token
   getRole(): string | null {
-    const token = this.tokenServices.token;
+    const token = this.tokenServices.getToken();
     if (!token) return null;
 
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    return payload.role || null;
+    try {
+      const payload = this.getPayloadFromToken(token);
+      console.log('payload', payload);
+      return payload.role || null;
+    } catch (error) {
+      console.error('Error decoding token payload:', error);
+      return null;
+    }
+  }
+
+  private getPayloadFromToken(token: string): any {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload;
+    } catch (error) {
+      console.error('Error decoding token payload:', error);
+      return null;
+    }
   }
 }

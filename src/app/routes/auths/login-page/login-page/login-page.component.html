@@ -9,8 +9,11 @@
               <p class="text-white-50 mb-5">
                 Please enter your login and password!
               </p>
-
               <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+                <div *ngIf="form.invalid && formMessage" class="text-danger">
+                  {{ formMessage }}
+                </div>
+
                 <div data-mdb-input-init class="form-outline form-white mb-4">
                   <label class="form-label" for="typeEmailX">Email</label>
                   <input

@@ -4,20 +4,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TokenService {
-  private readonly TOKEN_KEY = 'authToken';
+  private readonly TOKEN_KEY = 'token';
 
   // Set the token in local storage
-  set token(token: string) {
+  setToken(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);
   }
 
   // Get the token from local storage
-  get token(): string | null {
+  getToken(): string | null {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
   // Remove the token from local storage
-  clearToken() {
+  clearToken(): void {
     localStorage.removeItem(this.TOKEN_KEY);
   }
 }
