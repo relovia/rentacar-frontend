@@ -1,4 +1,4 @@
-<div class="min-vh-100 d-flex flex-column">
+<div class="min-vh-100 d-flex flex-column overflow-hidden">
   <app-navbar
     [title]="navTitle"
     [navItems]="navItems"
@@ -41,7 +41,7 @@
     </ng-template>
   </app-navbar>
 
-  <main class="container-fluid flex-grow-1 my-3">
+  <main class="flex-grow-1 my-3">
     <ng-content></ng-content>
   </main>
 
