@@ -23,9 +23,6 @@ export const managementRoutes: Routes = [
   {
     path: 'management',
     canActivate: [authGuard], // Angular Guard yapıları ilgili route'a giriş yapmadan önce çalışacak olan yapılar
-    data: {
-      requiredRoles: ['USER', 'ADMIN'],
-    },
     component: ManagementPageComponent,
     children: [
       // Brands

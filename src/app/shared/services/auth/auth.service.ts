@@ -6,6 +6,7 @@ import {
 } from '../api';
 import { TokenService } from '../token/token.service';
 import { Observable, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ import { Observable, tap } from 'rxjs';
 export class AuthService {
   constructor(
     private authControllerServices: AuthenticationControllerService,
-    private tokenServices: TokenService
+    private tokenServices: TokenService,
+    private router: Router
   ) {}
 
   // Check if the user is logged in
@@ -49,6 +51,7 @@ export class AuthService {
   // Log the user out
   logout(): void {
     this.tokenServices.clearToken();
+    this.router.navigate(['/login']);
   }
 
   // Get the role of the user from the token

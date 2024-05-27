@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -9,8 +9,23 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title(title: any) {
-    throw new Error('Method not implemented.');
+export class AppComponent implements OnInit {
+  ngOnInit() {
+    const backToTopButton = document.getElementById('backToTop');
+
+    if (backToTopButton) {
+      window.onscroll = () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.style.display = 'block';
+        } else {
+          backToTopButton.style.display = 'none';
+        }
+      };
+
+      backToTopButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   }
 }

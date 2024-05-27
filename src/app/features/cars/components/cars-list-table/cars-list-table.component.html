@@ -19,8 +19,11 @@
       <td>{{ car.modelName }}</td>
       <td>{{ car.modelYear }}</td>
       <td>{{ car.plate }}</td>
-      <td>{{ car.dailyPrice }}</td>
-      <td>{{ car.state }}</td>
+      <td>{{ car.dailyPrice }}₺</td>
+      <td>
+        @if (car.state == 1) { Available } @else if (car.state == 2) { Rented }
+        @else { Under Maintenance }
+      </td>
       <td></td>
       <td>
         <div class="d-flex justify-content-end">

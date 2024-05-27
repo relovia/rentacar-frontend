@@ -23,11 +23,7 @@ export type NavTitle =
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [
-    CommonModule, //ngFor
-    RouterModule, //routerLink
-    ButtonComponent,
-  ],
+  imports: [CommonModule, RouterModule, ButtonComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })

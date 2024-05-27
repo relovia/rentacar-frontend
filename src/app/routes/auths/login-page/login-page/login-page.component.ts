@@ -12,11 +12,17 @@ import {
   LoginRequestParams,
 } from '../../../../shared/services/api';
 import { TokenService } from '../../../../shared/services/token/token.service';
+import { HomeLayoutComponent } from '../../../../shared/layouts/home-layout/home-layout.component';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    HomeLayoutComponent,
+  ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
 })

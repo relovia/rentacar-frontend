@@ -15,7 +15,6 @@ import {
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { CarControllerService } from '../../../../shared/services/api';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-car-form',

@@ -11,11 +11,17 @@ import {
   RegisterRequestParams,
 } from '../../../shared/services/api';
 import { Router, RouterModule } from '@angular/router';
+import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-layout.component';
 
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    HomeLayoutComponent,
+  ],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss',
 })

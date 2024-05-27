@@ -5,17 +5,39 @@
     [endContentTemplate]="navbarEndContent"
   >
     <!-- ng-content -->
-
     <ng-template #navbarEndContent>
-      <button
-        class="btn btn-outline-primary"
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target="#loginModal"
-        [routerLink]="['/login']"
-      >
-        Login
-      </button>
+      <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+        <button
+          class="btn btn-outline-primary rounded-pill"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#logoutModal"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+      </ng-container>
+
+      <ng-template #notLoggedIn>
+        <button
+          class="btn btn-outline-primary rounded-pill"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="registerModal"
+          [routerLink]="['/register']"
+        >
+          Register
+        </button>
+        <button
+          class="btn btn-outline-primary ms-3 rounded-pill"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#loginModal"
+          [routerLink]="['/login']"
+        >
+          Login
+        </button>
+      </ng-template>
     </ng-template>
   </app-navbar>
 
