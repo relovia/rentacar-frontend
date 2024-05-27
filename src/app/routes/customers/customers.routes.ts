@@ -7,8 +7,5 @@ export const customerRoutes: Routes = [
     path: 'customers',
     component: CustomersPageComponent,
     canActivate: [authGuard],
-    data: {
-      requiredRoles: ['USER', 'ADMIN'],
-    },
   },
 ];

@@ -12,6 +12,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const isLoggedIn = authService.isLoggedIn();
   const role = authService.getRole();
 
+  // Check if the user is logged in and has the required role
   console.log('isLoggedIn', isLoggedIn);
   console.log('role', role);
 
@@ -22,12 +23,11 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   const requiredRoles = route.data['requiredRoles'] as string[];
 
-  if (
-    requiredRoles &&
-    requiredRoles.length > 0 &&
-    !requiredRoles.includes(role!)
-  ) {
-    return redirectToUnauthorized(router);
+  if (requiredRoles) {
+    const userRole = role;
+    if (!userRole || !requiredRoles.some((role) => role === userRole)) {
+      return redirectToUnauthorized(router);
+    }
   }
 
   return true;

@@ -19,12 +19,14 @@ export class AuthService {
   // Check if the user is logged in
   isLoggedIn(): boolean {
     const token = this.tokenServices.getToken();
-    return token !== null && !this.isTokenExpired(token);
+    return !!token && !this.isTokenExpired(token);
   }
 
   // Check if the token is expired
   private isTokenExpired(token: string): boolean {
-    const payload = JSON.parse(atob(token.split('.')[1]));
+    const payload = this.getPayloadFromToken(token);
+    if (!payload) return true;
+
     const expirationTime = payload.exp;
     const currentTime = Math.floor(Date.now() / 1000);
     return currentTime > expirationTime;
@@ -57,6 +59,7 @@ export class AuthService {
     try {
       const payload = this.getPayloadFromToken(token);
       console.log('payload', payload);
+      console.log("Payload's role: ", payload.role);
       return payload.role || null;
     } catch (error) {
       console.error('Error decoding token payload:', error);
