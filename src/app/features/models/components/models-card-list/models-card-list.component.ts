@@ -18,6 +18,7 @@ import {
 } from '../../../../shared/services/api';
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
 import { CardComponent } from '../../../../shared/components/card/card/card.component';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-models-card-list',
@@ -93,32 +94,23 @@ export class ModelsCardListComponent
   }
 
   getModelCardText(model: GetAllModelResponse): {
-    text: string;
+    brandName: string;
+    fuelName: string;
+    transmissionName: string;
     imageUrl: string;
   } {
-    const brandName = this.brands.find(
-      (brand) => brand.id === model.brandId
-    )?.name;
-    this.brands.sort((a, b) => a.id! - b.id!);
-
-    const fuelName = this.fuels.find((fuel) => fuel.id === model.fuelId)?.name;
-    this.fuels.sort((a, b) => a.id! - b.id!);
-
-    const transmissionName = this.transmissions.find(
-      (transmission) => transmission.id === model.transmissionId
-    )?.name;
-    this.transmissions.sort((a, b) => a.id! - b.id!);
-
-    const text = `
-                  Brand: ${brandName || 'Unknown'}
-                 | Fuel: ${fuelName || 'Unknown'} 
-                 | Transmission: ${transmissionName || 'Unknown'}
-                 | Color: ${model.color}`;
+    const brandName =
+      this.brands.find((brand) => brand.id === model.brandId)?.name || '';
+    const fuelName =
+      this.fuels.find((fuel) => fuel.id === model.fuelId)?.name || '';
+    const transmissionName =
+      this.transmissions.find(
+        (transmission) => transmission.id === model.transmissionId
+      )?.name || '';
     const imageUrl = this.modelImageUrls[model.id!];
 
-    return { text, imageUrl };
+    return { brandName, fuelName, transmissionName, imageUrl };
   }
-
   modelImageUrls: {
     [id: number]: string;
   } = {

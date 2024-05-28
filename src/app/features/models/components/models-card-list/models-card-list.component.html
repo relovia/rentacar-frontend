@@ -4,7 +4,10 @@
     [imageSrc]="modelImageUrls[model.id!]"
     [imgAlt]="model.name!"
     [title]="model.name!"
-    [text]="getModelCardText(model).text"
+    [brandName]="getModelCardText(model).brandName"
+    [fuelName]="getModelCardText(model).fuelName"
+    [transmissionName]="getModelCardText(model).transmissionName"
+    [model]="model"
     buttonLabel="Rent"
     class="col p-3"
   ></app-card>

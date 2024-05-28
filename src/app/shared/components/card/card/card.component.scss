@@ -1,3 +1,35 @@
 :host {
   display: block;
 }
+.card-title {
+  font-size: 1.6rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.3rem;
+  background-color: #9baee9;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.card-text {
+  white-space: pre-line;
+  font-size: 1.2rem;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.label {
+  font-weight: 900;
+  color: #333;
+}

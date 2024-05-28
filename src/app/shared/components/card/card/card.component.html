@@ -1,24 +1,24 @@
-<div class="card" style="width: 18rem; height: 100%">
+<div class="card" style="width: 18rem">
   <img
     [src]="imageSrc"
     [alt]="imgAlt"
     class="card-img-top"
-    width="200"
-    height="200"
+    width="250"
+    height="250"
   />
   <div class="card-body">
-    <div class="row">
-      <div class="col-6">
-        <h5 class="card-title">{{ title }}</h5>
+    <div class="card-content">
+      <h5 class="card-title">{{ title }}</h5>
+      <div class="d-flex flex-column">
         <p class="card-text">
-          {{ text }}
+          <span class="label">Brand:</span> {{ brandName }} <br />
+          <span class="label">Fuel:</span> {{ fuelName }} <br />
+          <span class="label">Transmission:</span> {{ transmissionName }}
+          <br />
+          <span class="label">Color:</span> {{ model.color }}
         </p>
       </div>
-      <div class="col-6">
-        <p class="card-text">Buraya araç özellikleri eklenecek.</p>
-      </div>
     </div>
-
     <button
       type="button"
       class="btn btn-primary w-100"

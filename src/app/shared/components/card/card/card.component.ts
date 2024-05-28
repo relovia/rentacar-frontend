@@ -15,5 +15,9 @@ export class CardComponent {
   @Input() title!: string;
   @Input() text!: string;
   @Input() buttonLabel!: string;
+  @Input() brandName!: string;
+  @Input() fuelName!: string;
+  @Input() transmissionName!: string;
+  @Input() model!: any;
   @Output() buttonClick = new EventEmitter();
 }
