@@ -12,7 +12,7 @@ import { TransmissionsListBaseComponent } from '../transmissions-list-base/trans
   imports: [CommonModule, MenuComponent],
   templateUrl: 'transmissions-list-menu.component.html',
   styleUrl: './transmissions-list-menu.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush, // OnPush ile değişikliklerin kontrolü optimize edilir.
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TransmissionsListMenuComponent
   extends TransmissionsListBaseComponent

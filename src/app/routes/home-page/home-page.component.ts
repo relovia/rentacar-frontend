@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { HomeLayoutComponent } from '../../shared/layouts/home-layout/home-layout.component';
-import { ButtonComponent } from '../../shared/components/button/button.component';
 import { BrandsListMenuComponent } from '../../features/brands/components/brands-list-menu/brands-list-menu.component';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import {
@@ -33,7 +32,6 @@ export class HomePageComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // Lifecycle hook // Component ilk oluşturulduğunda çalışır
     this.getSelectedBrandIdFromRoute();
     this.getSelectedTransmissionIdFromRoute();
   }
@@ -57,7 +55,6 @@ export class HomePageComponent implements OnInit {
       this.router.navigate([''], {
         queryParams: {
           brandId: this.selectedBrandId, // ?brandId=1
-          // brandId: [1, 2] // ?brandId=1&brandId=2
         },
       });
     } else this.router.navigate(['']);

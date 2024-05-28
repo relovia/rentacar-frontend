@@ -28,4 +28,5 @@ export class AppComponent implements OnInit {
       });
     }
   }
+  title = 'Rent A Car';
 }

@@ -10,9 +10,9 @@ import { Router, RouterModule } from '@angular/router';
 import {
   AuthenticationControllerService,
   LoginRequestParams,
-} from '../../../../shared/services/api';
-import { TokenService } from '../../../../shared/services/token/token.service';
-import { HomeLayoutComponent } from '../../../../shared/layouts/home-layout/home-layout.component';
+} from '../../../shared/services/api';
+import { TokenService } from '../../../shared/services/token/token.service';
+import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-layout.component';
 
 @Component({
   selector: 'app-login-page',

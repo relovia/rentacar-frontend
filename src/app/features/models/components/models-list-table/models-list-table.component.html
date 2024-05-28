@@ -3,6 +3,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
+      <th scope="col">Color</th>
       <th scope="col">View Details</th>
       <th scope="col"></th>
     </tr>
@@ -12,6 +13,7 @@
     <tr>
       <th scope="row">{{ model.id }}</th>
       <td>{{ model.name }}</td>
+      <td>{{ model.color }}</td>
       <td>
         <a
           [routerLink]="['/management/models/detail/', model.id]"

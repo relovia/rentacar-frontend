@@ -32,7 +32,6 @@ export class TransmissionsListBaseComponent {
     protected change: ChangeDetectorRef
   ) {}
 
-  // ngOnInit component ilk yerleştiğinde bir kez çalışır.
   // 2. OnPush, lifecycle hookları tetiklendiğinde değişikliği algılar.
   ngOnInit(): void {
     this.getTransmissionsList();

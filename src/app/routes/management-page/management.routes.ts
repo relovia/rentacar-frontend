@@ -29,6 +29,9 @@ export const managementRoutes: Routes = [
       {
         path: 'brands',
         component: ManagementBrandsPageComponent,
+        data: {
+          requiredRoles: ['USER'],
+        },
       },
       {
         path: 'brands/create',
@@ -49,6 +52,9 @@ export const managementRoutes: Routes = [
       {
         path: 'models',
         component: ManagementModelsPageComponent,
+        data: {
+          requiredRoles: ['USER'],
+        },
       },
       {
         path: 'models/create',
@@ -64,10 +70,12 @@ export const managementRoutes: Routes = [
           requiredRoles: ['ADMIN'],
         },
       },
+      // Model Detail
       {
         path: 'models/detail/:modelId',
         component: ManagementModelDetailPageComponent,
       },
+      // Model Rent
       {
         path: 'models/rent',
         component: ManagementPaymentPageComponent,
@@ -77,6 +85,9 @@ export const managementRoutes: Routes = [
       {
         path: 'cars',
         component: ManagementCarsPageComponent,
+        data: {
+          requiredRoles: ['USER'],
+        },
       },
       {
         path: 'cars/create',
@@ -97,6 +108,9 @@ export const managementRoutes: Routes = [
       {
         path: 'transmissions',
         component: ManagementTransmissionsPageComponent,
+        data: {
+          requiredRoles: ['USER'],
+        },
       },
       {
         path: 'transmissions/create',
@@ -117,6 +131,9 @@ export const managementRoutes: Routes = [
       {
         path: 'fuels',
         component: ManagementFuelsPageComponent,
+        data: {
+          requiredRoles: ['USER'],
+        },
       },
       {
         path: 'fuels/create',
