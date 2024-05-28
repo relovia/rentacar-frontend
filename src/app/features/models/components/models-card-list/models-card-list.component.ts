@@ -35,7 +35,6 @@ export class ModelsCardListComponent
 
   get filteredModels(): GetAllModelResponse[] {
     let newList: GetAllModelResponse[] = this.models;
-    console.log(newList);
     if (this.brandId) {
       newList = newList.filter((model) => model.brandId === this.brandId);
     }

@@ -12,8 +12,8 @@ export const routes: Routes = [
   ...homeRoutes,
   ...aboutRoutes,
   ...contactRoutes,
-  ...managementRoutes,
   ...customerRoutes,
+  ...managementRoutes,
   ...registerRoutes,
   ...loginRoutes,
   {
