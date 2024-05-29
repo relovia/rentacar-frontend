@@ -1,2 +1,83 @@
-<p>rental works!</p>
-<button [routerLink]="['/management/payment']">Payment</button>
+<div class="container mt-4 vh-100">
+  <h2>Rent a Car</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div
+      *ngIf="formMessage"
+      class="fs-3 mb-3"
+      [ngClass]="{
+        'text-danger': !isSuccessful,
+        'text-success': isSuccessful
+      }"
+    >
+      {{ formMessage }}
+    </div>
+    <div class="form-group">
+      <label for="carId">Car ID</label>
+      <input
+        type="number"
+        formControlName="carId"
+        class="form-control"
+        id="carId"
+      />
+    </div>
+    <div class="form-group">
+      <label for="rentStartDate">Start Date</label>
+      <input
+        type="date"
+        formControlName="rentStartDate"
+        class="form-control"
+        id="rentStartDate"
+      />
+    </div>
+    <div class="form-group">
+      <label for="rentEndDate">End Date</label>
+      <input
+        type="date"
+        formControlName="rentEndDate"
+        class="form-control"
+        id="rentEndDate"
+      />
+    </div>
+    <div class="form-group">
+      <label for="renterName">Renter Name</label>
+      <input
+        type="text"
+        formControlName="renterName"
+        class="form-control"
+        id="renterName"
+      />
+    </div>
+    <button type="submit" class="btn btn-lg btn-primary w-100">Submit</button>
+  </form>
+
+  <hr />
+
+  <h2 class="mt-5">Current Rentals</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Car Id</th>
+        <th scope="col">Rent Start Date</th>
+        <th scope="col">Rent End Date</th>
+        <th scope="col">Renter Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (rental of rentals; track $index) {
+      <tr>
+        <th scope="row">{{ rental.carId }}</th>
+        <td>{{ rental.rentStartDate }}</td>
+        <td>{{ rental.rentEndDate }}</td>
+        <td>{{ rental.renterName }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <button
+    [routerLink]="['/management/payment']"
+    class="btn btn-lg btn-primary w-100"
+  >
+    Payment
+  </button>
+</div>
