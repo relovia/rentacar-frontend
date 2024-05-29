@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { CustomerListComponent } from '../../features/customer-list/components/customer-list/customer-list.component';
+import { CustomerListComponent } from '../../features/customer-list/customer-list.component';
 
 @Component({
   selector: 'app-customers-page',

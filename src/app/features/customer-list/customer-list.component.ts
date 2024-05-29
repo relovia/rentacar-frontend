@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HomeLayoutComponent } from '../../../../shared/layouts/home-layout/home-layout.component';
-import { TableDirective } from '../../../../shared/directives/table.directive';
+import { HomeLayoutComponent } from '../../shared/layouts/home-layout/home-layout.component';
+import { TableDirective } from '../../shared/directives/table.directive';
 import {
   GetAllUserResponse,
   UserControllerService,
-} from '../../../../shared/services/api';
+} from '../../shared/services/api';
 
 @Component({
   selector: 'app-customer-list',

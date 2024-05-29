@@ -18,6 +18,7 @@ import { ManagementPaymentPageComponent } from './management-payment-page/manage
 import { ManagementFuelsPageComponent } from './management-fuels-page/management-fuels-page.component';
 import { ManagementCreateFuelPageComponent } from './management-fuels-page/management-create-fuel-page/management-create-fuel-page.component';
 import { ManagementEditFuelPageComponent } from './management-fuels-page/management-edit-fuel-page/management-edit-fuel-page.component';
+import { ManagementRentalsPageComponent } from './management-rentals-page/management-rentals-page.component';
 
 export const managementRoutes: Routes = [
   {
@@ -78,7 +79,7 @@ export const managementRoutes: Routes = [
       // Model Rent
       {
         path: 'models/rent',
-        component: ManagementPaymentPageComponent,
+        component: ManagementRentalsPageComponent,
       },
 
       // Cars
@@ -148,6 +149,11 @@ export const managementRoutes: Routes = [
         data: {
           requiredRoles: ['ADMIN'],
         },
+      },
+      // Payment
+      {
+        path: 'payment',
+        component: ManagementPaymentPageComponent,
       },
     ],
   },

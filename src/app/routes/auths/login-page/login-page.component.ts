@@ -29,6 +29,7 @@ import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-la
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
   formMessage: string | null = null;
+  isSuccessful: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -63,16 +64,7 @@ export class LoginPageComponent implements OnInit {
       // Next: Observable'dan gelen veriyi yakaladığımız fonksiyon
       next: (response) => {
         this.tokenService.setToken(response.token as string);
-        console.log(response);
-      },
-      // Error: Observable'dan gelen hatayı yakaladığımız fonksiyon
-      error: (error) => {
-        console.log('Login error: ', error);
-        this.formMessage = error.errorMessage || 'Login failed';
-        this.change.markForCheck();
-      },
-      // Complete: Observable'dan gelen veri akışının tamamladığını bildiren fonksiyon, eğer complete çalışırsa observable'dan gelen veri akışı sona erer.
-      complete: () => {
+        this.isSuccessful = true;
         this.formMessage = 'Login successful';
         this.form.reset();
         this.change.markForCheck();
@@ -81,11 +73,19 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/']);
         }, 2000);
       },
+      // Error: Observable'dan gelen hatayı yakaladığımız fonksiyon
+      error: (error) => {
+        console.log('Login error: ', error);
+        this.isSuccessful = false;
+        this.formMessage = error.errorMessage || 'Login failed';
+        this.change.markForCheck();
+      },
     });
   }
 
   onFormSubmit() {
     if (this.form.invalid) {
+      this.isSuccessful = false;
       this.formMessage = 'Please fill all required fields';
       return;
     }

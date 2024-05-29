@@ -8,8 +8,10 @@ import {
 } from '@angular/core';
 import {
   BrandControllerService,
+  CarControllerService,
   FuelControllerService,
   GetAllBrandResponse,
+  GetAllCarResponse,
   GetAllFuelResponse,
   GetAllModelResponse,
   GetAllTransmissionResponse,
@@ -54,6 +56,7 @@ export class ModelsCardListComponent
     private brandsServices: BrandControllerService,
     private fuelsServices: FuelControllerService,
     private transmissionsServices: TransmissionControllerService,
+    private carsServices: CarControllerService,
     change: ChangeDetectorRef
   ) {
     super(modelServices, change);
@@ -67,6 +70,7 @@ export class ModelsCardListComponent
   brands: GetAllBrandResponse[] = [];
   fuels: GetAllFuelResponse[] = [];
   transmissions: GetAllTransmissionResponse[] = [];
+  cars: GetAllCarResponse[] = [];
 
   getModelRelations(): void {
     // Brand
@@ -91,26 +95,47 @@ export class ModelsCardListComponent
         this.transmissions = transmissions;
         this.change.markForCheck();
       });
+
+    // Car
+    this.carsServices.getAllCars().subscribe((cars) => {
+      console.log('Cars:', cars);
+      this.cars = cars;
+      this.change.markForCheck();
+    });
   }
 
   getModelCardText(model: GetAllModelResponse): {
     brandName: string;
     fuelName: string;
     transmissionName: string;
+    dailyPrice: number;
     imageUrl: string;
   } {
     const brandName =
       this.brands.find((brand) => brand.id === model.brandId)?.name || '';
+
     const fuelName =
       this.fuels.find((fuel) => fuel.id === model.fuelId)?.name || '';
+
     const transmissionName =
       this.transmissions.find(
         (transmission) => transmission.id === model.transmissionId
       )?.name || '';
+
+    const dailyPrice =
+      this.cars.find((car) => car.id === model.id)?.dailyPrice || 0;
+
     const imageUrl = this.modelImageUrls[model.id!];
 
-    return { brandName, fuelName, transmissionName, imageUrl };
+    return {
+      brandName,
+      fuelName,
+      transmissionName,
+      dailyPrice,
+      imageUrl,
+    };
   }
+
   modelImageUrls: {
     [id: number]: string;
   } = {

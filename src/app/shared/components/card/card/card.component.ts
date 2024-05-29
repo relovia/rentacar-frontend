@@ -18,6 +18,7 @@ export class CardComponent {
   @Input() brandName!: string;
   @Input() fuelName!: string;
   @Input() transmissionName!: string;
+  @Input() dailyPrice?: number;
   @Input() model!: any;
   @Output() buttonClick = new EventEmitter();
 }

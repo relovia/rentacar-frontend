@@ -28,6 +28,7 @@ import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-la
 export class RegisterPageComponent implements OnInit {
   form!: FormGroup;
   formMessage: string | null = null;
+  isSuccessful: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -71,14 +72,7 @@ export class RegisterPageComponent implements OnInit {
       // Next: Observable'dan gelen veriyi yakaladığımız fonksiyon
       next: (response) => {
         console.log(response);
-      },
-      // Error: Observable'dan gelen hatayı yakaladığımız fonksiyon
-      error: (error) => {
-        this.formMessage = error.errorMessage;
-        this.change.markForCheck();
-      },
-      // Complete: Observable'dan gelen veri akışının tamamladığını bildiren fonksiyon, eğer complete çalışırsa observable'dan gelen veri akışı sona erer.
-      complete: () => {
+        this.isSuccessful = true;
         this.formMessage = 'Registration successful';
         this.form.reset();
         this.change.markForCheck();
@@ -87,11 +81,19 @@ export class RegisterPageComponent implements OnInit {
           this.router.navigate(['/login']);
         }, 2000);
       },
+      // Error: Observable'dan gelen hatayı yakaladığımız fonksiyon
+      error: (error) => {
+        console.log('Registration error: ', error);
+        this.isSuccessful = false;
+        this.formMessage = error.errorMessage || 'Registration failed';
+        this.change.markForCheck();
+      },
     });
   }
 
   onFormSubmit() {
     if (this.form.invalid) {
+      this.isSuccessful = false;
       this.formMessage = 'Please fill all required fields';
       return;
     }
