@@ -29,8 +29,10 @@ import { HomeLayoutComponent } from '../../../../shared/layouts/home-layout/home
   styleUrl: './rental.component.scss',
 })
 export class RentalComponent {
+  // Tüm araç ve kiralama verileri tutar
   rentals: GetAllRentalResponse[] = [];
   cars: GetAllCarResponse[] = [];
+
   form!: FormGroup;
   formMessage: string | null = null;
   isSuccessful: boolean = false;
@@ -47,9 +49,11 @@ export class RentalComponent {
   }
 
   ngOnInit() {
+    // Kiralama ve form verilerini yükler
     this.loadRentals();
     this.createForm();
 
+    // PrefilledCarId varsa formu otomatik doldurur
     this.route.queryParams.subscribe((params) => {
       const prefilledCarId = params['prefilledCarId'];
 
@@ -60,6 +64,7 @@ export class RentalComponent {
     });
   }
 
+  // Araç detaylarını alır ve formu doldurur
   getCarDetails(carId: number) {
     this.carsServices.getCarById({ id: carId }).subscribe((car) => {
       const carDetails = `Model Name: ${car.modelName}, Plate: ${car.plate}, Daily Price: ${car.dailyPrice}₺`;
@@ -76,6 +81,7 @@ export class RentalComponent {
     });
   }
 
+  // Kiralama formunu oluşturur ve validasyon kurallarını ekler
   createForm() {
     this.form = this.formBuilder.group({
       carId: ['', Validators.required],
@@ -85,6 +91,7 @@ export class RentalComponent {
     });
   }
 
+  // Tüm kiralamaları yükler
   loadRentals() {
     this.rentalServices.getAllRentals().subscribe({
       next: (response) => {
@@ -164,6 +171,7 @@ export class RentalComponent {
     });
   }
 
+  // Form gönderildiğinde çalışır
   onSubmit(): void {
     if (this.form.invalid) {
       this.isSuccessful = false;

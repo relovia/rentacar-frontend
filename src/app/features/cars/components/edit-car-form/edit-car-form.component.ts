@@ -43,6 +43,7 @@ export class EditCarFormComponent implements OnInit {
   }
 
   createForm() {
+    // Formun yapısını ve doğrulama kurallarını tanımlar
     this.form = this.formBuilder.group({
       modelId: ['', [Validators.required]],
       modelYear: ['', [Validators.required]],
@@ -53,6 +54,7 @@ export class EditCarFormComponent implements OnInit {
   }
 
   getCar() {
+    // Araç bilgilerini API'den alır ve formun yapısını günceller
     this.carsService.getCarById({ id: this.carId }).subscribe((car) => {
       this.form.patchValue({
         modelId: car.modelId,
@@ -71,6 +73,7 @@ export class EditCarFormComponent implements OnInit {
       return;
     }
 
+    // Araç bilgilerini API'den günceller ve sonucu gönderir
     this.carsService
       .updateCar({
         updateCarRequest: {

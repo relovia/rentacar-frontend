@@ -18,6 +18,7 @@ export class CarsListMenuComponent
   extends CarsListBaseComponent
   implements OnInit
 {
+  // MenuComponent'a eklenecek menu itemleri alır.
   get carsMenuItems(): MenuItem[] {
     return (
       this.cars?.map((car) => {

@@ -30,6 +30,7 @@ export class PaymentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Formu oluşturur ve validasyon kurallarını ekler
     this.form = this.formBuilder.group({
       cardNumberControl: [
         '',
@@ -47,6 +48,7 @@ export class PaymentComponent implements OnInit {
     });
   }
 
+  // API'deki tüm araç verilerini alır
   getCarDetails() {
     this.carServices.getAllCars().subscribe((res) => {
       this.cars = res;
@@ -97,7 +99,9 @@ export class PaymentComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      // Handle form submission
+      console.log('Form is valid');
+    } else {
+      console.log('Form is not valid');
     }
   }
 }

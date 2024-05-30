@@ -18,6 +18,7 @@ export class BrandsListMenuComponent
   extends BrandsListBaseComponent
   implements OnInit
 {
+  // MenuComponent'a eklenecek menu itemleri alır.
   get brandsMenuItems(): MenuItem[] {
     return (
       this.brands?.map((brand) => {

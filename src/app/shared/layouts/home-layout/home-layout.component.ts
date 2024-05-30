@@ -4,7 +4,7 @@ import {
   NavItem,
   NavTitle,
 } from '../../components/navbar/navbar.component';
-import { FooterComponent } from '../../components/footer/footer/footer.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';

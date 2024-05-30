@@ -37,6 +37,7 @@ export class CarsListBaseComponent {
     this.getCarsList();
   }
 
+  // 1. OnPush, yönteminde input değerlerinde değişiklik olduğunda değişikliği algılar.
   getCarsList() {
     this.carsService.getAllCars().subscribe((response: GetAllCarResponse[]) => {
       this.cars = response.sort((a, b) => {

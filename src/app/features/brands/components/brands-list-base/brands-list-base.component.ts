@@ -19,7 +19,8 @@ import {
   styleUrl: './brands-list-base.component.scss',
 })
 export class BrandsListBaseComponent {
-  @Input() initialSelectedBrandId: number | null = null; // 1. OnPush, yönteminde input değerlerinde değişiklik olduğunda değişikliği algılar.
+  // 1. OnPush, yönteminde input değerlerinde değişiklik olduğunda değişikliği algılar.
+  @Input() initialSelectedBrandId: number | null = null;
   @Output() selectBrand = new EventEmitter<GetAllBrandResponse | null>();
 
   brands!: GetAllBrandResponse[];
@@ -31,18 +32,18 @@ export class BrandsListBaseComponent {
     private change: ChangeDetectorRef
   ) {}
 
-  // ngOnInit component ilk yerleştiğinde bir kez çalışır.
   // 2. OnPush, lifecycle hookları tetiklendiğinde değişikliği algılar.
   ngOnInit(): void {
     this.getBrandsList();
   }
 
+  // BrandsListBaseComponent.html üzerinden bir event tetiklendiğinde değişikliği algılar.
   getBrandsList() {
     this.brandsService
       .getAllBrands()
       .subscribe((response: GetAllBrandResponse[]) => {
         this.brands = response.sort((a, b) => {
-          // a.name ve b.name ile öğelerin isimlerine erişin ve karşılaştırın
+          // a.name ve b.name ile öğelerin isimlerine erişir ve karşılaştırır
           if (a.name && b.name) {
             return a.name.localeCompare(b.name); // String isimlerine göre sıralama
           }

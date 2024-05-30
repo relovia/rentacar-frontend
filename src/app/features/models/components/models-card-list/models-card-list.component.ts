@@ -13,7 +13,7 @@ import {
   TransmissionControllerService,
 } from '../../../../shared/services/api';
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
-import { CardComponent } from '../../../../shared/components/card/card/card.component';
+import { CardComponent } from '../../../../shared/components/card/card.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,6 +30,7 @@ export class ModelsCardListComponent
   @Input() brandId: number | null = null;
   @Input() transmissionId: number | null = null;
 
+  // Belirli filtrelere göre modelleri döndürür
   get filteredModels(): GetAllModelResponse[] {
     let newList: GetAllModelResponse[] = this.models;
     if (this.brandId) {
@@ -54,7 +55,7 @@ export class ModelsCardListComponent
     private router: Router,
     change: ChangeDetectorRef
   ) {
-    super(modelServices, change);
+    super(modelServices, change); // ModelListBaseComponent'in constructor'ını çağırır
   }
 
   override ngOnInit(): void {
@@ -99,6 +100,7 @@ export class ModelsCardListComponent
     });
   }
 
+  // Model kartındaki metinleri ve bilgileri hazırlar
   getModelCardText(model: GetAllModelResponse): {
     brandName: string;
     fuelName: string;
