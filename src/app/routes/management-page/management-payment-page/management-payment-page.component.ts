@@ -13,7 +13,5 @@ import { PaymentComponent } from '../../../features/payments/components/payment/
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ManagementPaymentPageComponent {
-  creditCard: any;
-
   constructor() {}
 }
