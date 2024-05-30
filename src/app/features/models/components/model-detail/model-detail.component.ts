@@ -11,7 +11,7 @@ import {
   ModelControllerService,
   TransmissionControllerService,
 } from '../../../../shared/services/api';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-model-detail',
@@ -35,6 +35,7 @@ export class ModelDetailComponent
     private brandsService: BrandControllerService,
     private transmissionsService: TransmissionControllerService,
     private carsService: CarControllerService,
+    private router: Router,
     change: ChangeDetectorRef
   ) {
     super(modelsService, change); // Call base class constructor with required services
@@ -47,6 +48,7 @@ export class ModelDetailComponent
     console.log('car', this.car);
 
     this.change.markForCheck();
+
     if (this.modelId) {
       this.fetchModelDetails(this.model?.id!);
     }
@@ -98,6 +100,12 @@ export class ModelDetailComponent
       const car = cars.find((car) => car.modelId === modelId);
       this.car = car!;
       console.log('Fetched car:', this.car);
+    });
+  }
+
+  goRentPage() {
+    this.router.navigate(['/management/models/rent'], {
+      queryParams: { prefilledCarId: this.car.id },
     });
   }
 }

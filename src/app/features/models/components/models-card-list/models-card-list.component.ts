@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectorRef,
-  Component,
-  Input,
-  model,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import {
   BrandControllerService,
   CarControllerService,
@@ -20,7 +14,7 @@ import {
 } from '../../../../shared/services/api';
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
 import { CardComponent } from '../../../../shared/components/card/card/card.component';
-import { style } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-models-card-list',
@@ -57,6 +51,7 @@ export class ModelsCardListComponent
     private fuelsServices: FuelControllerService,
     private transmissionsServices: TransmissionControllerService,
     private carsServices: CarControllerService,
+    private router: Router,
     change: ChangeDetectorRef
   ) {
     super(modelServices, change);
@@ -134,6 +129,20 @@ export class ModelsCardListComponent
       dailyPrice,
       imageUrl,
     };
+  }
+
+  goToRentPage(model: GetAllModelResponse) {
+    const carId = this.cars.find((car) => car.modelId === model.id)?.id;
+
+    if (carId) {
+      this.router.navigate(['/management/models/rent'], {
+        queryParams: {
+          prefilledCarId: carId,
+        },
+      });
+    } else {
+      console.log('Seçilen modele ait bir araç bulunamadı.');
+    }
   }
 
   modelImageUrls: {

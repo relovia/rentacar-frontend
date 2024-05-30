@@ -2,12 +2,7 @@
   <div class="home-image d-flex justify-content-center align-items-center">
     <div class="text-center text-white">
       <h1>Welcome to our rental gallery!</h1>
-      <button
-        class="btn btn-lg btn-primary"
-        [routerLink]="['/management/models']"
-      >
-        View Models
-      </button>
+      <a href="#model-list" class="btn btn-lg btn-primary"> View Models </a>
     </div>
   </div>
 
@@ -26,7 +21,7 @@
         ></app-transmissions-list-menu>
       </div>
     </div>
-    <div class="d-flex flex-column justify-content-evenly mx-2">
+    <div class="d-flex flex-column justify-content-evenly mx-2" id="model-list">
       <app-models-card-list
         [brandId]="selectedBrandId"
         [transmissionId]="selectedTransmissionId"

@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import {
   CarControllerService,
-  GetAllBrandResponse,
   GetAllCarResponse,
 } from '../../../../shared/services/api';
 
@@ -46,6 +45,12 @@ export class CarsListBaseComponent {
           return a.modelName.localeCompare(b.modelName); // String isimlerine göre sıralama
         }
         return 0; // İsimlerden biri yoksa veya null ise sıralama yapma
+      });
+
+      this.cars.forEach((car) => {
+        if (!car.state) {
+          car.state = 1;
+        }
       });
 
       if (this.initialSelectedCarId) {
