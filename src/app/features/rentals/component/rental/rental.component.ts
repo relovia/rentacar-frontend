@@ -15,6 +15,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { HomeLayoutComponent } from '../../../../shared/layouts/home-layout/home-layout.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-rental',
@@ -43,10 +44,9 @@ export class RentalComponent {
     private carsServices: CarControllerService,
     private change: ChangeDetectorRef,
     private router: Router,
-    private route: ActivatedRoute
-  ) {
-    this.formMessage = null;
-  }
+    private route: ActivatedRoute,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     // Kiralama ve form verilerini yükler
@@ -97,13 +97,13 @@ export class RentalComponent {
       next: (response) => {
         this.rentals = response;
         this.isSuccessful = true;
-        this.formMessage = 'Rentals loaded';
+        this.toastr.success('Rentals loaded', 'Success');
         this.change.markForCheck();
       },
       error: (error) => {
         console.log('Rentals error: ', error);
         this.isSuccessful = false;
-        this.formMessage = error.errorMessage || 'Rentals failed';
+        this.toastr.error('Rentals failed', 'Failed');
         this.change.markForCheck();
       },
     });
@@ -112,7 +112,7 @@ export class RentalComponent {
   createRental() {
     if (this.form.invalid) {
       this.isSuccessful = false;
-      this.formMessage = 'Please fill all required fields';
+      this.toastr.error('Please fill all required fields', 'Error');
       return;
     }
 
@@ -130,7 +130,7 @@ export class RentalComponent {
       next: (response) => {
         console.log('Rental created:', response);
         this.isSuccessful = true;
-        this.formMessage = 'Rental created successfully';
+        this.toastr.success('Rental created successfully', 'Success');
         this.change.markForCheck();
         this.form.reset();
 
@@ -165,7 +165,7 @@ export class RentalComponent {
       error: (error) => {
         console.log('Error creating rental:', error);
         this.isSuccessful = false;
-        this.formMessage = error.errorMessage || 'Failed to create rental';
+        this.toastr.error('Failed to create rental', 'Error');
         this.change.markForCheck();
       },
     });
@@ -175,7 +175,7 @@ export class RentalComponent {
   onSubmit(): void {
     if (this.form.invalid) {
       this.isSuccessful = false;
-      this.formMessage = 'Please fill all required fields';
+      this.toastr.error('Please fill all required fields', 'Error');
       return;
     }
     this.createRental();
