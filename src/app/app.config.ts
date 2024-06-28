@@ -6,6 +6,7 @@ import { provideApiServices } from './shared/services/api/providers/api-services
 import { authInterceptor } from './shared/interceptors/auth.interceptor';
 import { loadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,5 +14,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([authInterceptor, loadingInterceptor])),
     provideApiServices(),
     provideAnimationsAsync(),
+    provideToastr(),
   ],
 };

@@ -13,6 +13,7 @@ import {
 } from '../../../shared/services/api';
 import { TokenService } from '../../../shared/services/token/token.service';
 import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-layout.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-page',
@@ -36,7 +37,8 @@ export class LoginPageComponent implements OnInit {
     private authServices: AuthenticationControllerService,
     private change: ChangeDetectorRef,
     private router: Router,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -65,7 +67,7 @@ export class LoginPageComponent implements OnInit {
       next: (response) => {
         this.tokenService.setToken(response.token as string);
         this.isSuccessful = true;
-        this.formMessage = 'Login successful';
+        this.toastr.success('Login successful', 'Success');
         this.form.reset();
         this.change.markForCheck();
 
@@ -77,7 +79,7 @@ export class LoginPageComponent implements OnInit {
       error: (error) => {
         console.log('Login error: ', error);
         this.isSuccessful = false;
-        this.formMessage = error.errorMessage || 'Login failed';
+        this.toastr.error('Login failed', 'Error');
         this.change.markForCheck();
       },
     });
@@ -86,7 +88,7 @@ export class LoginPageComponent implements OnInit {
   onFormSubmit() {
     if (this.form.invalid) {
       this.isSuccessful = false;
-      this.formMessage = 'Please fill all required fields';
+      this.toastr.warning('Please fill all required fields', 'Warning');
       return;
     }
     this.login();

@@ -12,17 +12,6 @@
                 Registration Form
               </h2>
               <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
-                <div
-                  *ngIf="formMessage"
-                  class="fs-3 mb-3"
-                  [ngClass]="{
-                    'text-danger': !isSuccessful,
-                    'text-success': isSuccessful
-                  }"
-                >
-                  {{ formMessage }}
-                </div>
-
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div data-mdb-input-init class="form-outline">

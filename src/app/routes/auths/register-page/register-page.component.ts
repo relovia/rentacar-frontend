@@ -12,6 +12,7 @@ import {
 } from '../../../shared/services/api';
 import { Router, RouterModule } from '@angular/router';
 import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-layout.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register-page',
@@ -27,14 +28,14 @@ import { HomeLayoutComponent } from '../../../shared/layouts/home-layout/home-la
 })
 export class RegisterPageComponent implements OnInit {
   form!: FormGroup;
-  formMessage: string | null = null;
   isSuccessful: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private authServices: AuthenticationControllerService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -73,7 +74,7 @@ export class RegisterPageComponent implements OnInit {
       next: (response) => {
         console.log(response);
         this.isSuccessful = true;
-        this.formMessage = 'Registration successful';
+        this.toastr.success('Registration successful', 'Success');
         this.form.reset();
         this.change.markForCheck();
 
@@ -85,7 +86,7 @@ export class RegisterPageComponent implements OnInit {
       error: (error) => {
         console.log('Registration error: ', error);
         this.isSuccessful = false;
-        this.formMessage = error.errorMessage || 'Registration failed';
+        this.toastr.error('Registration failed', 'Error');
         this.change.markForCheck();
       },
     });
@@ -94,7 +95,7 @@ export class RegisterPageComponent implements OnInit {
   onFormSubmit() {
     if (this.form.invalid) {
       this.isSuccessful = false;
-      this.formMessage = 'Please fill all required fields';
+      this.toastr.warning('Please fill all required fields', 'Warning');
       return;
     }
     this.add();
