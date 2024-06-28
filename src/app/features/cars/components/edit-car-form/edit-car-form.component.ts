@@ -15,6 +15,7 @@ import {
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { CarControllerService } from '../../../../shared/services/api';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-car-form',
@@ -28,13 +29,13 @@ export class EditCarFormComponent implements OnInit {
   @Input() carId!: number;
 
   form!: FormGroup;
-  formMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
     private carsService: CarControllerService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -69,7 +70,7 @@ export class EditCarFormComponent implements OnInit {
 
   edit() {
     if (this.form.invalid) {
-      this.formMessage = 'Please fill the form correctly';
+      this.toastr.warning('Please fill the form correctly', 'Warning');
       return;
     }
 
@@ -85,7 +86,7 @@ export class EditCarFormComponent implements OnInit {
       })
       .subscribe({
         complete: () => {
-          this.formMessage = 'Car updated successfully';
+          this.toastr.success('Car updated successfully', 'Success');
           this.change.markForCheck();
 
           setTimeout(() => {
@@ -97,7 +98,7 @@ export class EditCarFormComponent implements OnInit {
 
   onFormSubmit() {
     if (this.form.invalid) {
-      this.formMessage = 'Please fill the form correctly';
+      this.toastr.warning('Please fill the form correctly', 'Warning');
       return;
     }
 

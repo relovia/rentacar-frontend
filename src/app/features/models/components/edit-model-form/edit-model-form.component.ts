@@ -15,6 +15,7 @@ import {
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { Router } from '@angular/router';
 import { ModelControllerService } from '../../../../shared/services/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-model-form',
@@ -28,13 +29,13 @@ export class EditModelFormComponent implements OnInit {
   @Input() modelId!: number;
 
   form!: FormGroup;
-  formMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
     private modelsService: ModelControllerService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -69,7 +70,7 @@ export class EditModelFormComponent implements OnInit {
       })
       .subscribe({
         complete: () => {
-          this.formMessage = 'Model updated successfully';
+          this.toastr.success('Model updated successfully', 'Success');
           this.change.markForCheck();
 
           setTimeout(() => {
@@ -81,7 +82,7 @@ export class EditModelFormComponent implements OnInit {
 
   onFormSubmit() {
     if (this.form.invalid) {
-      this.formMessage = 'Please fill the form correctly';
+      this.toastr.warning('Please fill the form correctly', 'Warning');
       return;
     }
 

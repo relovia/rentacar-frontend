@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { TransmissionsListBaseComponent } from '../transmissions-list-base/transmissions-list-base.component';
 import { TransmissionControllerService } from '../../../../shared/services/api';
 import { ConfirmationPopUpComponent } from '../../../../shared/components/confirmation-pop-up/confirmation-pop-up.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-transmissions-list-table',
@@ -31,10 +32,11 @@ export class TransmissionsListTableComponent extends TransmissionsListBaseCompon
 
   constructor(
     transmissionsService: TransmissionControllerService,
-    change: ChangeDetectorRef
+    change: ChangeDetectorRef,
+    toastr: ToastrService
   ) {
     // Alt sınıfta bir constructor tanımlandığında super() ile üst sınıfın constructor'ı da çağrılmalıdır.
-    super(transmissionsService, change); // super ana sınıfın constructor'ını çağırır.
+    super(transmissionsService, change, toastr); // super ana sınıfın constructor'ını çağırır.
   }
 
   deleteTransmission(id: number) {
@@ -53,6 +55,7 @@ export class TransmissionsListTableComponent extends TransmissionsListBaseCompon
         });
     }
     this.resetDeleteConfirmation();
+    this.toastr.success('Transmission deleted successfully', 'Delete');
   }
 
   onDeleteCancel() {

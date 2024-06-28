@@ -10,6 +10,7 @@ import {
   GetAllTransmissionResponse,
   TransmissionControllerService,
 } from '../../../../shared/services/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-transmissions-list-base',
@@ -29,7 +30,8 @@ export class TransmissionsListBaseComponent {
 
   constructor(
     protected transmissionsService: TransmissionControllerService,
-    protected change: ChangeDetectorRef
+    protected change: ChangeDetectorRef,
+    protected toastr: ToastrService
   ) {}
 
   // 2. OnPush, lifecycle hookları tetiklendiğinde değişikliği algılar.
@@ -61,6 +63,7 @@ export class TransmissionsListBaseComponent {
 
       // 3. OnPush, ChangeDetectorRef.markForCheck metodu ile componentin değişiklikleri algılaması sağlanır.
       this.change.markForCheck();
+      this.toastr.success('Transmissions loaded successfully', 'Success');
     });
   }
 

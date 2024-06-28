@@ -10,6 +10,7 @@ import {
   BrandControllerService,
   GetAllBrandResponse,
 } from '../../../../shared/services/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-brands-list-base',
@@ -29,7 +30,8 @@ export class BrandsListBaseComponent {
 
   constructor(
     protected brandsService: BrandControllerService,
-    private change: ChangeDetectorRef
+    private change: ChangeDetectorRef,
+    protected toastr: ToastrService
   ) {}
 
   // 2. OnPush, lifecycle hookları tetiklendiğinde değişikliği algılar.
@@ -62,6 +64,7 @@ export class BrandsListBaseComponent {
 
         // 3. OnPush, ChangeDetectorRef.markForCheck metodu ile componentin değişiklikleri algılaması sağlanır.
         this.change.markForCheck();
+        this.toastr.success('Brands loaded successfully', 'Success');
       });
   }
 

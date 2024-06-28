@@ -10,6 +10,7 @@ import { TableDirective } from '../../../../shared/directives/table.directive';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { RouterModule } from '@angular/router';
 import { ConfirmationPopUpComponent } from '../../../../shared/components/confirmation-pop-up/confirmation-pop-up.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-brands-list-table',
@@ -31,10 +32,11 @@ export class BrandsListTableComponent extends BrandsListBaseComponent {
 
   constructor(
     brandsService: BrandControllerService,
-    change: ChangeDetectorRef
+    change: ChangeDetectorRef,
+    toastr: ToastrService
   ) {
     // Alt sınıfta bir constructor tanımlandığında super() ile üst sınıfın constructor'ı da çağrılmalıdır.
-    super(brandsService, change); // super ana sınıfın constructor'ını çağırır.
+    super(brandsService, change, toastr); // super ana sınıfın constructor'ını çağırır.
   }
 
   deleteBrand(id: number) {
@@ -51,6 +53,7 @@ export class BrandsListTableComponent extends BrandsListBaseComponent {
       });
     }
     this.resetDeleteConfirmation();
+    this.toastr.success('Brand deleted successfully', 'Delete');
   }
 
   onDeleteCancel() {

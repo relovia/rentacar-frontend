@@ -12,6 +12,7 @@ import {
   TransmissionControllerService,
 } from '../../../../shared/services/api';
 import { Router, RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-model-detail',
@@ -36,9 +37,10 @@ export class ModelDetailComponent
     private transmissionsService: TransmissionControllerService,
     private carsService: CarControllerService,
     private router: Router,
-    change: ChangeDetectorRef
+    change: ChangeDetectorRef,
+    toastr: ToastrService
   ) {
-    super(modelsService, change); // Call base class constructor with required services
+    super(modelsService, change, toastr); // Call base class constructor with required services
   }
 
   override ngOnInit(): void {

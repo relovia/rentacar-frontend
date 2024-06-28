@@ -15,6 +15,7 @@ import {
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
 import { CardComponent } from '../../../../shared/components/card/card.component';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-models-card-list',
@@ -53,9 +54,10 @@ export class ModelsCardListComponent
     private transmissionsServices: TransmissionControllerService,
     private carsServices: CarControllerService,
     private router: Router,
-    change: ChangeDetectorRef
+    change: ChangeDetectorRef,
+    toastr: ToastrService
   ) {
-    super(modelServices, change); // ModelListBaseComponent'in constructor'ını çağırır
+    super(modelServices, change, toastr); // ModelListBaseComponent'in constructor'ını çağırır
   }
 
   override ngOnInit(): void {

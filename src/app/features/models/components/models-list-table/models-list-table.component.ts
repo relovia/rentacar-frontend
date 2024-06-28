@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ModelsListBaseComponent } from '../models-list-base/models-list-base.component';
 import { ModelControllerService } from '../../../../shared/services/api';
 import { ConfirmationPopUpComponent } from '../../../../shared/components/confirmation-pop-up/confirmation-pop-up.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-models-list-table',
@@ -31,10 +32,11 @@ export class ModelsListTableComponent extends ModelsListBaseComponent {
 
   constructor(
     modelsService: ModelControllerService,
-    change: ChangeDetectorRef
+    change: ChangeDetectorRef,
+    toastr: ToastrService
   ) {
     // Alt sınıfta bir constructor tanımlandığında super() ile üst sınıfın constructor'ı da çağrılmalıdır.
-    super(modelsService, change); // super ana sınıfın constructor'ını çağırır.
+    super(modelsService, change, toastr); // super ana sınıfın constructor'ını çağırır.
   }
 
   deleteModel(id: number) {
@@ -51,6 +53,7 @@ export class ModelsListTableComponent extends ModelsListBaseComponent {
       });
     }
     this.resetDeleteConfirmation();
+    this.toastr.success('Model deleted successfully', 'Delete');
   }
 
   onDeleteCancel() {

@@ -10,6 +10,7 @@ import {
   GetAllFuelResponse,
   FuelControllerService,
 } from '../../../../shared/services/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-fuels-list-base',
@@ -28,7 +29,8 @@ export class FuelsListBaseComponent {
 
   constructor(
     protected fuelsService: FuelControllerService,
-    protected change: ChangeDetectorRef
+    protected change: ChangeDetectorRef,
+    protected toastr: ToastrService
   ) {}
 
   // ngOnInit component ilk yerleştiğinde bir kez çalışır.
@@ -58,6 +60,7 @@ export class FuelsListBaseComponent {
 
       // 3. OnPush, ChangeDetectorRef.markForCheck metodu ile componentin değişiklikleri algılaması sağlanır.
       this.change.markForCheck();
+      this.toastr.success('Fuels loaded successfully', 'Success');
     });
   }
 

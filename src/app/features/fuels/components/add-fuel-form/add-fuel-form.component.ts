@@ -17,6 +17,7 @@ import {
   FuelControllerService,
 } from '../../../../shared/services/api';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-fuel-form',
@@ -28,13 +29,13 @@ import { Router } from '@angular/router';
 })
 export class AddFuelFormComponent implements OnInit {
   form!: FormGroup;
-  formMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
     private fuelsServices: FuelControllerService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -61,12 +62,12 @@ export class AddFuelFormComponent implements OnInit {
       },
       // Error: Observable'dan gelen hatayı yakaladığımız fonksiyon
       error: (error) => {
-        this.formMessage = error.errorMessage;
+        this.toastr.error('An error occurred while adding fuel', 'Error');
         this.change.markForCheck();
       },
       // Complete: Observable'dan gelen veri akışının tamamladığını bildiren fonksiyon, eğer complete çalışırsa observable'dan gelen veri akışı sona erer.
       complete: () => {
-        this.formMessage = 'Fuel added successfully';
+        this.toastr.success('Fuel added successfully', 'Success');
         this.form.reset();
         this.change.markForCheck();
 
@@ -79,7 +80,7 @@ export class AddFuelFormComponent implements OnInit {
 
   onFormSubmit() {
     if (this.form.invalid) {
-      this.formMessage = 'Please fill all required fields';
+      this.toastr.warning('Please fill all required fields', 'Warning');
       return;
     }
 

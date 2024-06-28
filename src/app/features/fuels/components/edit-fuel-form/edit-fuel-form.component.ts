@@ -15,6 +15,7 @@ import {
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { Router } from '@angular/router';
 import { FuelControllerService } from '../../../../shared/services/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-fuel-form',
@@ -28,13 +29,13 @@ export class EditFuelFormComponent implements OnInit {
   @Input() fuelId!: number;
 
   form!: FormGroup;
-  formMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
     private fuelsService: FuelControllerService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -66,7 +67,7 @@ export class EditFuelFormComponent implements OnInit {
       })
       .subscribe({
         complete: () => {
-          this.formMessage = 'Fuel updated successfully';
+          this.toastr.success('Fuel updated successfully', 'Success');
           this.change.markForCheck();
 
           setTimeout(() => {
@@ -78,7 +79,7 @@ export class EditFuelFormComponent implements OnInit {
 
   onFormSubmit() {
     if (this.form.invalid) {
-      this.formMessage = 'Please fill the form correctly';
+      this.toastr.warning('Please fill the form correctly', 'Warning');
       return;
     }
 

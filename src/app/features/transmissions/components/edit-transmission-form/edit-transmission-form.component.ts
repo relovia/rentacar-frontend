@@ -15,6 +15,7 @@ import {
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { Router } from '@angular/router';
 import { TransmissionControllerService } from '../../../../shared/services/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-transmission-form',
@@ -28,13 +29,13 @@ export class EditTransmissionFormComponent implements OnInit {
   @Input() transmissionId!: number;
 
   form!: FormGroup;
-  formMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
     private transmissionsService: TransmissionControllerService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -68,7 +69,7 @@ export class EditTransmissionFormComponent implements OnInit {
       })
       .subscribe({
         complete: () => {
-          this.formMessage = 'Transmission updated successfully';
+          this.toastr.success('Transmission updated successfully', 'Success');
           this.change.markForCheck();
 
           setTimeout(() => {
@@ -80,7 +81,7 @@ export class EditTransmissionFormComponent implements OnInit {
 
   onFormSubmit() {
     if (this.form.invalid) {
-      this.formMessage = 'Please fill the form correctly';
+      this.toastr.warning('Please fill the form correctly', 'Warning');
       return;
     }
 

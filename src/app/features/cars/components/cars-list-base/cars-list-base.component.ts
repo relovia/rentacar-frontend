@@ -10,6 +10,7 @@ import {
   CarControllerService,
   GetAllCarResponse,
 } from '../../../../shared/services/api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cars-list-base',
@@ -28,7 +29,8 @@ export class CarsListBaseComponent {
 
   constructor(
     protected carsService: CarControllerService,
-    private change: ChangeDetectorRef
+    private change: ChangeDetectorRef,
+    protected toastr: ToastrService
   ) {}
 
   // ngOnInit component ilk yerleştiğinde bir kez çalışır.
@@ -64,6 +66,7 @@ export class CarsListBaseComponent {
 
       // 3. OnPush, ChangeDetectorRef.markForCheck metodu ile componentin değişiklikleri algılaması sağlanır.
       this.change.markForCheck();
+      this.toastr.success('Cars loaded successfully', 'Success');
     });
   }
 

@@ -10,6 +10,7 @@ import { TableDirective } from '../../../../shared/directives/table.directive';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { RouterModule } from '@angular/router';
 import { ConfirmationPopUpComponent } from '../../../../shared/components/confirmation-pop-up/confirmation-pop-up.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cars-list-table',
@@ -29,9 +30,13 @@ export class CarsListTableComponent extends CarsListBaseComponent {
   showDeleteConfirmation: boolean = false;
   deletingCarId: number | null = null;
 
-  constructor(carsService: CarControllerService, change: ChangeDetectorRef) {
+  constructor(
+    carsService: CarControllerService,
+    change: ChangeDetectorRef,
+    toastr: ToastrService
+  ) {
     // Alt sınıfta bir constructor tanımlandığında super() ile üst sınıfın constructor'ı da çağrılmalıdır.
-    super(carsService, change); // super ana sınıfın constructor'ını çağırır.
+    super(carsService, change, toastr); // super ana sınıfın constructor'ını çağırır.
   }
 
   deleteCar(id: number) {
@@ -48,6 +53,7 @@ export class CarsListTableComponent extends CarsListBaseComponent {
       });
     }
     this.resetDeleteConfirmation();
+    this.toastr.success('Car deleted successfully', 'Delete');
   }
 
   onDeleteCancel() {

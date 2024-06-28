@@ -15,6 +15,7 @@ import {
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { BrandControllerService } from '../../../../shared/services/api';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-brand-form',
@@ -28,13 +29,13 @@ export class EditBrandFormComponent implements OnInit {
   @Input() brandId!: number;
 
   form!: FormGroup;
-  formMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
     private brandsService: BrandControllerService,
     private change: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -66,7 +67,7 @@ export class EditBrandFormComponent implements OnInit {
       })
       .subscribe({
         complete: () => {
-          this.formMessage = 'Brand updated successfully';
+          this.toastr.success('Brand updated successfully', 'Success');
           this.change.markForCheck();
 
           setTimeout(() => {
@@ -78,7 +79,7 @@ export class EditBrandFormComponent implements OnInit {
 
   onFormSubmit() {
     if (this.form.invalid) {
-      this.formMessage = 'Please fill the form correctly';
+      this.toastr.warning('Please fill the form correctly', 'Warning');
       return;
     }
 
