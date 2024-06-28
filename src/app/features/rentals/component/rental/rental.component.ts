@@ -35,7 +35,6 @@ export class RentalComponent {
   cars: GetAllCarResponse[] = [];
 
   form!: FormGroup;
-  formMessage: string | null = null;
   isSuccessful: boolean = false;
 
   constructor(

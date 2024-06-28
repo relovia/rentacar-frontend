@@ -40,17 +40,6 @@
     <button type="submit" class="btn btn-lg btn-primary w-100">Submit</button>
   </form>
 
-  <div
-    *ngIf="formMessage"
-    class="fs-3 my-3"
-    [ngClass]="{
-      'text-danger': !isSuccessful,
-      'text-success': isSuccessful
-    }"
-  >
-    {{ formMessage }}
-  </div>
-
   <hr />
 
   <span
