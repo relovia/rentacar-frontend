@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: ''
+  apiUrl: 'https://rentacar-backend-575927ecf713.herokuapp.com/',
 };
